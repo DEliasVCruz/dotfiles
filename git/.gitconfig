@@ -1,0 +1,21 @@
+[user]
+	name = DEliasVilelaC
+	email = danielvilelayo@gmail.com
+[alias]
+    ss = status -s
+    a = add
+    aa = add .
+    b = branch
+    bd = branch -d
+    cm = commit
+    cma = commit --ammend
+    cmane = commit --ammend --no-edit
+    co = checkout
+    cob = checkout -b
+    uns = reset HEAD --
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[credential]
+	helper = store --file ~/.git_credentials
