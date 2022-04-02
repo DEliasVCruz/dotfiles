@@ -1,0 +1,87 @@
+Xft.antialias:	1
+Xft.hinting:	1
+Xft.autohint:	0
+Xft.hintstyle:	hintslight
+Xft.rgba:	rgb
+Xft.lcdfilter:	lcddefault
+
+st.font:         VictorMonoMedium-9
+
+! window padding
+st.borderpx: 0
+
+!- 0.1 to 0.9 = transparency
+st.alpha: 0.7
+
+! One true background
+*.background:   #000000
+*.cursorColor:  #d0d0d0
+
+/* Catppuccino colors */
+
+/* ! Gray
+*color0: #6E6C7E
+*color8: #988BA2
+
+! Red
+*color1: #F28FAD
+*color9: #F28FAD
+
+! Green
+*color2: #ABE9B3
+*color10: #ABE9B3
+
+! Yellow
+*color3: #FAE3B0
+*color11:  #FAE3B0
+
+! Blue
+*color4: #96CDFB
+*color12: #96CDFB
+
+! Maguve
+*color5: #DDB6F2
+*color13: #DDB6F2
+
+! Pink
+*color6: #F5C2E7
+*color14: #F5C2E7
+
+! Whites
+*color7: #C3BAC6
+*color15: #D9E0EE */
+
+
+/* Traditinal colors */
+
+! black
+*.color0:       #282828
+*.color8:       #666666
+
+! red
+*.color1:       #d71a1a
+*.color9:       #ff0000
+
+! green
+*.color2:       #57ba37
+*.color10:      #d8fa3b
+
+! yellow
+*.color3:       #f0d50c
+*.color11:      #e7c547
+
+! blue
+*.color4:       #91aadf
+*.color12:      #b7cbf4
+
+! magenta
+*.color5:       #cf73e6
+*.color13:      #b77ee0
+
+! cyan
+*.color6:       #b7cbf4
+*.color14:      #a9c1de
+
+! white
+*.color7:       #dedede
+*.color15:      #eeeeee
