@@ -20,5 +20,4 @@ ripgrep
 fzf
 zsh
 conky
-yay
 artix-archlinux-support
