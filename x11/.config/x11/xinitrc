@@ -1,0 +1,17 @@
+#!/bin/sh
+# Executed by startx (run your window manager from here)
+
+# Make sure this is before the 'exec' command or it won't be sourced.
+~/.config/x11/xprofile &
+
+# Merge in defaults and keymaps
+xrandr --dpi 96 &
+xrdb --merge .config/x11/xresources &
+
+# Start some nice programs
+unclutter &
+
+# Update exchange rates
+qalc -exrates >/dev/null &
+
+exec dwm

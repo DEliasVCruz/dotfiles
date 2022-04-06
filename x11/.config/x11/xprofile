@@ -1,0 +1,7 @@
+# Environment variables set everywhere
+export EDITOR="nvim"
+export TERMINAL="st"
+export BROWSER="firefox"
+
+# zsh config dir
+export ZDOTDIR=$HOME/.config/zsh
