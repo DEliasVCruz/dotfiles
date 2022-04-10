@@ -192,6 +192,7 @@ reboot_sys() {
 }
 
 main() {
+	base_system
 	configure_pacman
 	temporal_env
 	setup
@@ -205,6 +206,7 @@ main() {
 	install_languages
 	chmod +x ./bin/*
 	install_basic_programs
+	install_audio
 	install_drivers
 	configure_zsh
 	give_ownership_back scripts repos bin repos Desktop
