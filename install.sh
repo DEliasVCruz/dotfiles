@@ -141,14 +141,15 @@ install_languages() {
 	go versioin && echo "Installed go" || echo "No go install"
 
 	printf "\nInstalling python"
-	git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+	git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
 	echo "Entering pyenv repo"
-	cd $HOME/.pyenv && src/configure && make -C src
+	cd $PYENV_ROOT && src/configure && make -C src
 	back_home_from "pyenv"
 	eval "$(pyenv init --path)" && echo "Successfully initialized pyenv path"
 	eval "$(pyenv init -)" && echo "Successfully initialized pyenv"
 	pyenv install -v 3.8.0
 	pyenv global -v 3.8.0
+	back_home_from "pyenv"
 }
 
 configure_zsh() {
@@ -168,18 +169,25 @@ install_audio() {
 }
 
 install_basic_programs() {
-	pacman -S --noconfirm bat ripgrep fd fzf zsh keepassxc zoxide glow
-	pacman -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
-	pacman -S --noconfirm libqalculate unclutter
+	paru -S --noconfirm bat ripgrep fd fzf zsh keepassxc zoxide glow
+	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
+	paru -S --noconfirm libqalculate unclutter jq playerctl
+	paru -S --noconfirm picom-jonaburg-git
 	go install github.com/xyproto/wallutils/cmd/setwallpaper@latest
 	go install github.com/xyproto/wallutils/cmd/xinfo@latest
 	cargo install rm-improved
 	curl -o $HOME/bin/cn https://gitlab.com/arijit79/cn/uploads/991b176a489f90556c3f2b857f3b974f/cn
 	echo "Installing terminals"
-	pacman -S --noconfirm kitty alacritty
+	paru -S --noconfirm kitty alacritty
 	echo "Installing browser"
-	pacman -S --noconfirm firefox
+	paru -S --noconfirm firefox
 	update_nvim
+}
+
+reboot_sys() {
+	exit
+	umount -R /mnt
+	reboot
 }
 
 main() {
