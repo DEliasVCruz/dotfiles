@@ -173,7 +173,7 @@ install_basic_programs() {
 	paru -S --noconfirm bat ripgrep fd fzf zsh keepassxc zoxide glow
 	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
 	paru -S --noconfirm libqalculate unclutter jq playerctl
-	paru -S --noconfirm picom-jonaburg-git
+	paru -S --noconfirm picom-jonaburg-git herbstluftwm
 	go install github.com/xyproto/wallutils/cmd/setwallpaper@latest
 	go install github.com/xyproto/wallutils/cmd/xinfo@latest
 	cargo install rm-improved

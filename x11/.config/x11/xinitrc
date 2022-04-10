@@ -28,4 +28,4 @@ wireplumber &
 # Update exchange rates
 qalc -exrates >/dev/null &
 
-exec dwm
+exec herbstluftwm --locked
