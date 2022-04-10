@@ -6,10 +6,24 @@
 
 # Merge in defaults and keymaps
 xrandr --dpi 96 &
-xrdb --merge .config/x11/xresources &
+xrdb --merge ~/.config/x11/xresources &
+setxkbmap -option swapcaps:ctrl &
+xset r rate 200 40 &
+# setxkbmap -layout us,ara -option grp:win_space_toggle,caps:escape &
 
 # Start some nice programs
 unclutter &
+setwallpaper "$XDG_DATA_HOME"/backgrounds/2021-08-11-13-17-47-fallen_angel_face.jpg &
+picom --config ~/.config/picom/picom.conf --experimental-backend -b &
+# dunst &
+# picom &
+
+# Setup audio
+pipewire &
+pipewire-alsa &
+pipewire-pulse &
+pipwerire-jack &
+wireplumber &
 
 # Update exchange rates
 qalc -exrates >/dev/null &
