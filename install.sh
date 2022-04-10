@@ -98,7 +98,8 @@ configure_doas() {
 
 install_x11_deps() {
 	echo "Installing x11 packages"
-	pacman -S --noconfirm xorg-server xorg-xinit xorg-xrandr libxrandr libxft
+	pacman -S --noconfirm xorg-server xorg-xinit xorg-xrandr xorg-xset
+	pacman -S --noconfirm xorg-setxkbmap libxrandr libxft
 }
 
 install_basic_tools() {
@@ -109,8 +110,8 @@ install_basic_tools() {
 
 install_paru() {
 	echo "Installing paru AUR helper"
-	git clone https://aur.archlinux.org/paru.git ~/repos/paru
-	cd ./repos/paru && echo "Entering paru dir" || exit
+	git clone https://aur.archlinux.org/paru.git $HOME/repos/paru
+	cd $HOME/repos/paru && echo "Entering paru dir" || exit
 	makepkg -si
 	back_home_from "paru"
 }
