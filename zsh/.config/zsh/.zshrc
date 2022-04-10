@@ -4,15 +4,10 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # Env Variables
-# export AR="/mnt/media/Archivos"
 # export PATH="$HOME/.poetry/bin:$PATH"
 
 # # Evals
-# eval "$(jump shell)"
-# export PYENV_ROOT="$HOME/repos/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
 
 function _init_options {
     setopt interactive_comments # Allow for comments
