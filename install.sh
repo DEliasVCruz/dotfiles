@@ -161,6 +161,12 @@ install_drivers() {
 	pacman -S --noconfirm xf86-video-intel xf86-video-nouveau
 }
 
+install_audio() {
+	pacman -S --noconfirm pipewire wireplumber
+	pacman -S --noconfirm pipewire-pulse pipewire-alsa pipewire-jack
+	cargo install rsmixer
+}
+
 install_basic_programs() {
 	pacman -S --noconfirm bat ripgrep fd fzf zsh keepassxc zoxide glow
 	pacman -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
