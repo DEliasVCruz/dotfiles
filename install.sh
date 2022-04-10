@@ -35,7 +35,7 @@ configure_pacman() {
 }
 
 temporal_env() {
-	export HOME="/home/daniel/"
+	export HOME="/home/daniel"
 	export XDG_DATA_HOME="$HOME/.local/share"
 	export CARGO_HOME="$XDG_DATA_HOME/cargo"
 	export PATH="$CARGO_HOME/bin:$PATH"
@@ -52,17 +52,16 @@ back_home_from() {
 	cd "$HOME" && echo "Exiting $1 dir" || echo 'Could not change directory' && exit
 }
 
-user_own() {
-	for file in "$@"; do
-		chown -R daniel:daniel "$file"
-	done
-	end
-}
-
 clone() {
 	for repo in "$@"; do
-		git clone git@github.com:DEliasVCruz/"$repo".git
+		git clone https://github.com/DEliasVCruz/"$repo".git
 		echo "Cloning $repo repository"
+	done
+}
+
+give_ownership_back() {
+	for dir in "$@"; do
+		chown -R daniel:daniel $HOME/"$dir"
 	done
 }
 
@@ -74,14 +73,15 @@ setup() {
 }
 
 create_dir_structure() {
-	mkidr ./.config
-	mkdir -p ./.cargo/bin
-	mkdir ./scripts ./repos ./bin
-	mkdir ./Desktop ./Downloads ./Documents
+	mkidr $HOME/.config $XDG_DATA_HOME/backgrounds
+	mkdir $CARGO_HOME
+	mkdir $HOME/scripts $HOME/repos $HOME/bin
+	mkdir $HOME/Desktop $HOME/Downloads $HOME/Documents
+	chmod +x $HOME/dotfiles/setup.sh
 }
 
 clone_main_repos() {
-	cd ./repos && echo "Entering repos dir" || exit
+	cd $HOME/repos && echo "Entering repos dir" || exit
 	clone CristalMoon st ZettlekastenNotes
 	echo "Installing st"
 	cd st/ && echo "Enterig st dir" || exit
@@ -206,4 +206,7 @@ main() {
 	install_basic_programs
 	install_drivers
 	configure_zsh
+	give_ownership_back scripts repos bin repos Desktop
+	give_ownership_back Downloads Documents .local .config
+	reboot_sys
 }
