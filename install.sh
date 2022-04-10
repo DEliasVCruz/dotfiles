@@ -1,5 +1,29 @@
 #!/bin/sh
 
+base_system() {
+	echo "Configuring localization and clock"
+	ln -sf /usr/share/zoneinfo/America/Lima /etc/localtime
+	hwclock --systohc
+	sed -i -r "s/#(en_US.*)/\1/g" /etc/locale.gen
+	sed -i -r "s/#(es_PE.*)/\1/g" /etc/locale.gen
+	sed -i -r "s/#(ja_JP\.UTF.*)/\1/g" /etc/locale.gen
+	locale-gen
+	echo 'LANG="en_US.UTF-8"' >/etc/locale.conf
+
+	echo "Configuring bootloader"
+	pacman -S --noconfirm grub      #efibootmgr
+	grub-install --recheck /dev/sda #BIOS
+	# grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub #UEFI
+	grub-mkconfig -o /boot/grub/grub.cfg
+
+	echo "Configuring the network"
+	echo "devc" >/etc/hostname
+	printf "127.0.0.1\tlocalhost\n::1\t\tlocalhost" >/etc/hosts
+	printf "\n127.0.1.1\tdevc.localdomain devc\n" >>/etc/hosts
+	pacman -S --noconfirm connman-dinit git
+	ln -s ../connmand /etc/dinit.d/boot.d/
+}
+
 configure_pacman() {
 	echo "Enable Arch repos"
 	pacman -Syu --noconfirm artix-archlinux-support
