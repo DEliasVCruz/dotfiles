@@ -2,10 +2,10 @@
 	name = DEliasVilelaC
 	email = danielvilelayo@gmail.com
 [alias]
-    ss = status -s
+    s = status -s
     a = add
     aa = add .
-    b = branch
+    bl = branch -l
     bd = branch -d
     cm = commit
     cma = commit --ammend
@@ -18,4 +18,4 @@
 [init]
 	defaultBranch = main
 [credential]
-	helper = store --file ~/.git_credentials
+    helper = store --file "$XDG_CONFIG_HOME"/git/.git_credentials
