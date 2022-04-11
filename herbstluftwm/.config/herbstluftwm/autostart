@@ -3,7 +3,7 @@
 # this is a simple config for herbstluftwm
 
 hc() {
-    herbstclient "$@"
+	herbstclient "$@"
 }
 
 hc emit_hook reload
@@ -16,7 +16,7 @@ hc keyunbind --all
 # keybindings
 # if you have a super key you will be much happier with Mod set to Mod4
 #Mod=Mod1    # Use alt as the main modifier
-Mod=Mod4   # Use the super key as the main modifier
+Mod=Mod4 # Use the super key as the main modifier
 ORANGE='#FB8C00'
 
 hc spawn xset s off
@@ -34,24 +34,24 @@ hc keybind $Mod-y spawn sh ~/.config/rofi/power.sh
 
 # basic movement
 # focusing clients
-hc keybind $Mod-Left  focus left
-hc keybind $Mod-Down  focus down
-hc keybind $Mod-Up    focus up
+hc keybind $Mod-Left focus left
+hc keybind $Mod-Down focus down
+hc keybind $Mod-Up focus up
 hc keybind $Mod-Right focus right
-hc keybind $Mod-h     focus left
-hc keybind $Mod-j     focus down
-hc keybind $Mod-k     focus up
-hc keybind $Mod-l     focus right
+hc keybind $Mod-h focus left
+hc keybind $Mod-j focus down
+hc keybind $Mod-k focus up
+hc keybind $Mod-l focus right
 
 # moving clients
 hc keybind $Mod-Shift-Left or / shift left / \
-    chain , lock , shift_to_monitor -l , focus_monitor -l , unlock
-hc keybind $Mod-Shift-Down  or / shift down / \
-    chain , lock , shift_to_monitor -d , focus_monitor -d , unlock
-hc keybind $Mod-Shift-Up    or / shift up / \
-    chain , lock , shift_to_monitor -u , focus_monitor -u , unlock
+	chain , lock , shift_to_monitor -l , focus_monitor -l , unlock
+hc keybind $Mod-Shift-Down or / shift down / \
+	chain , lock , shift_to_monitor -d , focus_monitor -d , unlock
+hc keybind $Mod-Shift-Up or / shift up / \
+	chain , lock , shift_to_monitor -u , focus_monitor -u , unlock
 hc keybind $Mod-Shift-Right or / shift right / \
-    chain , lock , shift_to_monitor -r , focus_monitor -r , unlock
+	chain , lock , shift_to_monitor -r , focus_monitor -r , unlock
 #hc keybind $Mod-Shift-h     shift left
 #hc keybind $Mod-Shift-j     shift down
 #hc keybind $Mod-Shift-k     shift up
@@ -59,41 +59,41 @@ hc keybind $Mod-Shift-Right or / shift right / \
 
 # splitting frames
 # create an empty frame at the specified direction
-hc keybind $Mod-u       split   bottom  0.5
-hc keybind $Mod-o       split   right   0.5
+hc keybind $Mod-u split bottom 0.5
+hc keybind $Mod-o split right 0.5
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode
 
 # resizing frames
 resizestep=0.05
-hc keybind $Mod-Control-h       resize left +$resizestep
-hc keybind $Mod-Control-j       resize down +$resizestep
-hc keybind $Mod-Control-k       resize up +$resizestep
-hc keybind $Mod-Control-l       resize right +$resizestep
-hc keybind $Mod-Control-Left    resize left +$resizestep
-hc keybind $Mod-Control-Down    resize down +$resizestep
-hc keybind $Mod-Control-Up      resize up +$resizestep
-hc keybind $Mod-Control-Right   resize right +$resizestep
+hc keybind $Mod-Control-h resize left +$resizestep
+hc keybind $Mod-Control-j resize down +$resizestep
+hc keybind $Mod-Control-k resize up +$resizestep
+hc keybind $Mod-Control-l resize right +$resizestep
+hc keybind $Mod-Control-Left resize left +$resizestep
+hc keybind $Mod-Control-Down resize down +$resizestep
+hc keybind $Mod-Control-Up resize up +$resizestep
+hc keybind $Mod-Control-Right resize right +$resizestep
 
 hc keybind $Mod-Shift-space floating toggle
 
 # tags
-tag_names=( {1..9} )
-tag_keys=( {1..9} 0 )
+tag_names=({1..9})
+tag_keys=({1..9} 0)
 
 hc rename default "${tag_names[0]}" || true
-for i in "${!tag_names[@]}" ; do
-    hc add "${tag_names[$i]}"
-    key="${tag_keys[$i]}"
-    if [ -n "$key" ] ; then
-        hc keybind "$Mod-$key" use_index "$i"
-        hc keybind "$Mod-Shift-$key" move_index "$i"
-    fi
+for i in "${!tag_names[@]}"; do
+	hc add "${tag_names[$i]}"
+	key="${tag_keys[$i]}"
+	if [ -n "$key" ]; then
+		hc keybind "$Mod-$key" use_index "$i"
+		hc keybind "$Mod-Shift-$key" move_index "$i"
+	fi
 done
 
 # cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
-hc keybind $Mod-comma  use_index -1 --skip-visible
+hc keybind $Mod-comma use_index -1 --skip-visible
 
 # layouting
 hc keybind $Mod-r remove
@@ -103,10 +103,10 @@ hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
-hc keybind $Mod-space                                                           \
-            or , and . compare tags.focus.curframe_wcount = 2                   \
-                     . cycle_layout +1 vertical horizontal max grid    \
-               , cycle_layout +1
+hc keybind $Mod-space \
+	or , and . compare tags.focus.curframe_wcount = 2 \
+	. cycle_layout +1 vertical horizontal max grid \
+	, cycle_layout +1
 
 # mouse
 hc mouseunbind --all
@@ -116,9 +116,9 @@ hc mousebind $Mod-Button3 resize
 hc mousebind Mod1-B4 call substitute WID clients.dragged.winid spawn transset-df --inc -i WID 0.05
 
 # focus
-hc keybind $Mod-BackSpace   cycle_monitor
-hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
+hc keybind $Mod-BackSpace cycle_monitor
+hc keybind $Mod-Tab cycle_all +1
+hc keybind $Mod-Shift-Tab cycle_all -1
 hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 
@@ -161,7 +161,7 @@ hc set mouse_recenter_gap 0
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-hc keybind XF86AudioPlay spawn mpc toggle #strawberry -t; sh $HOME/dotfiles/musictoggle.sh -u strawberry
+hc keybind XF86AudioPlay spawn mpc toggle  #strawberry -t; sh $HOME/dotfiles/musictoggle.sh -u strawberry
 hc keybind XF86AudioPause spawn mpc toggle #strawberry -t
 
 # rules
@@ -195,7 +195,6 @@ xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 5120x0 --rotate normal -
 sleep 3
 # hc set_monitors 1920x1080+0+0 1110x1440+1920+0 2900x1400+3030+40 1110x1440+5930+0
 
-
 # WIP auto monitor config
 sh ~/dotfiles/herbstluftwm/auto-monitor-config.sh
 # currently with an additional 4k screen to edit videos on
@@ -211,7 +210,7 @@ hc spawn picom
 # set wallpaper either i use feh or nitrogen
 # hc spawn feh --bg-scale ~/walls/beach.jpg
 hc spawn nitrogen --restore &
-hc spawn sh $HOME/.config/polybar/launch.sh
+hc spawn sh "$HOME"/.config/polybar/launch.sh
 hc spawn /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 hc spawn plank
 
@@ -221,8 +220,6 @@ hc pad 2 0 0 0 0
 hc pad 1 0 0 0 0
 hc pad 0 0 0 0 0
 
-
-
 # create a panel for each monitor, i might add that for swapping tags
 #panel=~/.config/herbstluftwm/panel.sh
 #[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
@@ -230,7 +227,6 @@ hc pad 0 0 0 0 0
 #    # start it on each monitor
 #    "$panel" $monitor &
 #done
-
 
 # indicate multiple max layout windows not working but nice idea
 # hc -i focus_changed | \
