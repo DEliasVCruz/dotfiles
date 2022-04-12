@@ -179,7 +179,7 @@ install_basic_programs() {
 	cargo install rm-improved
 	curl -o $HOME/bin/cn https://gitlab.com/arijit79/cn/uploads/991b176a489f90556c3f2b857f3b974f/cn
 	echo "Installing terminals"
-	paru -S --noconfirm kitty alacritty
+	paru -S --noconfirm kitty
 	echo "Installing browser"
 	paru -S --noconfirm firefox
 	update_nvim
