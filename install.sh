@@ -97,18 +97,6 @@ configure_doas() {
 	chown -c 0400 /etc/doas.conf
 }
 
-install_x11_deps() {
-	echo "Installing x11 packages"
-	pacman -S --noconfirm xorg-server xorg-xinit xorg-xrandr xorg-xset
-	pacman -S --noconfirm xorg-setxkbmap libxrandr libxft
-}
-
-install_basic_tools() {
-	echo "Installing basic utils"
-	pacman -S --noconfirm xsel xclip
-	pacman -S --noconfirm man-db man-pages
-}
-
 install_paru() {
 	echo "Installing paru AUR helper"
 	git clone https://aur.archlinux.org/paru.git $HOME/repos/paru
@@ -117,18 +105,31 @@ install_paru() {
 	back_home_from "paru"
 }
 
+install_x11_deps() {
+	echo "Installing x11 packages"
+	paru -S --noconfirm xorg-server xorg-xinit xorg-xrandr xorg-xset
+	paru -S --noconfirm xorg-setxkbmap libxrandr libxft
+}
+
+install_basic_tools() {
+	echo "Installing basic utils"
+	paru -S --noconfirm xsel xclip
+	paru -S --noconfirm man-db man-pages
+}
+
 install_fonts() {
 	echo "Installing fontconfig"
-	pacman -S --noconfirm fontconfig
+	paru -S --noconfirm fontconfig
 	echo "Installing fonts"
-	pacman -S --noconfirm ttf-font-awesome adobe-source-code-pro-fonts
-	pacman -S --noconfirm awesome-terminal-fonts ttf-inconsolata
-	pacman -S --noconfirm nerd-fonts-noto-sans-mono nerd-fonts-terminus
+	paru -S --noconfirm nerd-fonts-source-code-pro nerd-fonts-inconsolata
+	paru -S --noconfirm nerd-fonts-noto-sans-mono nerd-fonts-terminus
+	paru -S --noconfirm nerd-fonts-victor-mono fontpreview-ueberzug-git
+	paru -S --noconfirm ttf-nerd-fonts-symbols
 }
 
 install_languages() {
 	printf "\nInstalling rustup"
-	pacman -S --noconfirm rustup
+	paru -S --noconfirm rustup
 	rustup install stable
 	rustup default stable && echo "Installed stable rust"
 
@@ -161,12 +162,12 @@ configure_zsh() {
 }
 
 install_drivers() {
-	pacman -S --noconfirm xf86-video-intel xf86-video-nouveau
+	paru -S --noconfirm xf86-video-intel xf86-video-nouveau
 }
 
 install_audio() {
-	pacman -S --noconfirm pipewire wireplumber
-	pacman -S --noconfirm pipewire-pulse pipewire-alsa pipewire-jack
+	paru -S --noconfirm pipewire wireplumber
+	paru -S --noconfirm pipewire-pulse pipewire-alsa pipewire-jack
 	cargo install rsmixer
 }
 
@@ -200,9 +201,9 @@ main() {
 	create_dir_structure
 	clone_main_repos
 	configure_doas
+	install_paru
 	install_x11_deps
 	install_basic_tools
-	install_paru
 	install_fonts
 	install_languages
 	chmod +x ./bin/*
