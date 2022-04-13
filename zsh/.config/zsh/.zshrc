@@ -13,6 +13,7 @@ function _init_options {
     setopt interactive_comments # Allow for comments
     setopt auto_cd              # Automaticlaly cd to directory name
     setopt nomatch              # Error if a file pattern does not match
+    setopt COMBINING_CHARS      # Unicode support
     stty stop undef
     autoload edit-command-line # Edit line in vim with ctrl-e:
     zle -N edit-command-line
