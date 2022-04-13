@@ -176,6 +176,17 @@ install_basic_programs() {
 	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
 	paru -S --noconfirm libqalculate unclutter jq playerctl btop
 	paru -S --noconfirm picom-jonaburg-git herbstluftwm
+
+	if [ -e /etc/xdg/herbstluftwm/autostart ]; then
+		echo "Installing herbstluftwm files"
+		cp /etc/xdg/herbstluftwm/autostart "$XDG_DATA_HOME"/herbstluftwm/
+		cp /etc/xdg/herbstluftwm/panel.sh "$XDG_DATA_HOME"/herbstluftwm/
+		cp /etc/xdg/herbstluftwm/restartpanels.sh "$XDG_DATA_HOME"/herbstluftwm/
+		echo "Successfully instaled herbstluftwm files"
+	else
+		echo "Coudl not install herbstluftwm files"
+	fi
+
 	go install github.com/xyproto/wallutils/cmd/setwallpaper@latest
 	go install github.com/xyproto/wallutils/cmd/xinfo@latest
 	cargo install rm-improved
