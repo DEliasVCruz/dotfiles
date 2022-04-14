@@ -50,7 +50,7 @@ temporal_env() {
 }
 
 back_home_from() {
-	cd "$HOME" && echo "Exiting $1 dir" || echo 'Could not change directory' && exit
+	cd "$HOME" && echo "Exiting $1 dir"
 }
 
 clone() {
@@ -82,10 +82,10 @@ create_dir_structure() {
 }
 
 clone_main_repos() {
-	cd $HOME/repos && echo "Entering repos dir" || exit
+	cd $HOME/repos && echo "Entering repos dir"
 	clone CristalMoon st ZettlekastenNotes
 	echo "Installing st"
-	cd st/ && echo "Enterig st dir" || exit
+	cd st/ && echo "Enterig st dir"
 	git checkout staging
 	make clean install && echo "Successfully installed st"
 	back_home_from "repos"
@@ -101,7 +101,7 @@ configure_doas() {
 install_paru() {
 	echo "Installing paru AUR helper"
 	git clone https://aur.archlinux.org/paru.git $HOME/repos/paru
-	cd $HOME/repos/paru && echo "Entering paru dir" || exit
+	cd $HOME/repos/paru && echo "Entering paru dir"
 	makepkg -si
 	back_home_from "paru"
 }
@@ -135,7 +135,7 @@ install_languages() {
 	rustup default stable && echo "Installed stable rust"
 
 	printf "\nInstalling go"
-	cd /tmp && echo "Entering tmp dir" || exit
+	cd /tmp && echo "Entering tmp dir"
 	wget https://go.dev/dl/go1.18.linux-amd64.tar.gz
 	echo "Extracting files"
 	tar -xvf go1.18.linux-amd64.tar.gz && "Successfully extracted"
