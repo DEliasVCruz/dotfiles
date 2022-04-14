@@ -205,6 +205,7 @@ reboot_sys() {
 }
 
 main() {
+	echo "Starting the script"
 	base_system
 	configure_pacman
 	temporal_env
