@@ -226,3 +226,5 @@ main() {
 	give_ownership_back Downloads Documents .local .config
 	reboot_sys
 }
+
+main
