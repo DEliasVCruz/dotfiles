@@ -89,7 +89,7 @@ clone_main_repos() {
 	git checkout staging
 	make clean install && echo "Successfully installed st"
 	back_home_from "repos"
-	sh $HOME/dotfiles/setup.sh
+	chmod +x $HOME/dotfiles/setup.sh && $HOME/dotfiles/setup.sh
 }
 
 configure_doas() {
