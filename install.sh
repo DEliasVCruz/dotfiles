@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 base_system() {
 	echo "Configuring localization and clock"
