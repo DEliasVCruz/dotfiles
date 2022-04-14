@@ -17,8 +17,6 @@ export _ZO_RESOLVE_SYMLINKS=1
 
 # export PYENV_ROOT="$HOME/.pyenv"
 
-export BAT_THEME="1337"
-
 typeset -U path PATH
 
 path+=(
