@@ -6,6 +6,9 @@
 # for a list of all available themes
 --theme="Monokai Extended Bright"
 
+# Never line wrap lines that exceed the margin
+--wrap=never
+
 # Enable this to use italic text on the terminal. This is not supported on all
 # terminal emulators (like tmux, by default):
 --italic-text=always
