@@ -200,7 +200,6 @@ install_basic_programs() {
 }
 
 reboot_sys() {
-	exit
 	umount -R /mnt
 	reboot
 }
