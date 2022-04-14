@@ -74,7 +74,7 @@ setup() {
 }
 
 create_dir_structure() {
-	mkidr $HOME/.config $XDG_DATA_HOME/backgrounds
+	mkdir $HOME/.config $XDG_DATA_HOME/backgrounds
 	mkdir $CARGO_HOME
 	mkdir $HOME/scripts $HOME/repos $HOME/bin
 	mkdir $HOME/Desktop $HOME/Downloads $HOME/Documents
