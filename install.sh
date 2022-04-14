@@ -94,8 +94,8 @@ clone_main_repos() {
 
 configure_doas() {
 	echo "Installing doas"
-	printf "permit :wheel\npermit persist :wheel" >/etc/doas.conf
-	chown -c 0400 /etc/doas.conf
+	printf "permit :wheel\npermit persist :wheel\n\n" >/etc/doas.conf
+	chown -R root:root /etc/doas.conf
 }
 
 install_paru() {
