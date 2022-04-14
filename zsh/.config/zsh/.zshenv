@@ -8,7 +8,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export DOT=$HOME/dotfiles
 export PAGER='less'
-export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Using "bat" as a manpager
+export MANPAGER="sh -c 'col -bx | bat --theme=Monokai\ Extended -l man -p'" # Using "bat" as a manpager
 export FZF_DEFAULT_OPTS="--layout=reverse --info=inline -i"
 export GRAVEYARD="$XDG_DATA_HOME/trash"
 export _ZO_ECHO=1
