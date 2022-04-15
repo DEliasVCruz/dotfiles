@@ -71,6 +71,7 @@ setup() {
 	echo "Installing setup packages"
 	pacman -Syu --noconfirm doas wget dateutils doas git-dinit
 	pacman -S --noconfirm stow openssh openssh-dinit
+	chmod +x /home/daniel/dotfiles/setup.sh
 	back_home_from "$(pwd)"
 }
 
@@ -86,7 +87,6 @@ create_dir_structure() {
 	mkdir $CARGO_HOME
 	mkdir $HOME/scripts $HOME/repos $HOME/bin
 	mkdir $HOME/Desktop $HOME/Downloads $HOME/Documents
-	chmod +x $HOME/dotfiles/setup.sh
 }
 
 clone_main_repos() {
@@ -97,7 +97,7 @@ clone_main_repos() {
 	git checkout staging
 	make clean install && echo "Successfully installed st"
 	back_home_from "repos"
-	chmod +x $HOME/dotfiles/setup.sh && $HOME/dotfiles/setup.sh
+	$HOME/dotfiles/setup.sh
 }
 
 install_cargo() {
