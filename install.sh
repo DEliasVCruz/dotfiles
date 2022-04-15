@@ -206,11 +206,6 @@ install_basic_programs() {
 	update_nvim
 }
 
-reboot_sys() {
-	umount -R /mnt
-	reboot
-}
-
 main() {
 	echo "Starting the script"
 	if [[ $(whoaim) = "root" ]]; then
@@ -235,7 +230,6 @@ main() {
 	configure_zsh
 	give_ownership_back scripts repos bin repos Desktop
 	give_ownership_back Downloads Documents .local .config
-	reboot_sys
 }
 
 main
