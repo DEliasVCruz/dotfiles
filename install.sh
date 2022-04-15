@@ -74,6 +74,13 @@ setup() {
 	back_home_from "$(pwd)"
 }
 
+configure_doas() {
+	echo "Installing doas"
+	printf "permit :wheel\npermit persist :wheel\n" >/etc/doas.conf
+	printf "permit setenv { XAUTHORITY LANG LC_ALL } :wheel\n\n" >>/etc/doas.conf
+	chown -R root:root /etc/doas.conf
+}
+
 create_dir_structure() {
 	mkdir $HOME/.config $XDG_DATA_HOME/backgrounds
 	mkdir $CARGO_HOME
@@ -91,12 +98,6 @@ clone_main_repos() {
 	make clean install && echo "Successfully installed st"
 	back_home_from "repos"
 	chmod +x $HOME/dotfiles/setup.sh && $HOME/dotfiles/setup.sh
-}
-
-configure_doas() {
-	echo "Installing doas"
-	printf "permit :wheel\npermit persist :wheel\n\n" >/etc/doas.conf
-	chown -R root:root /etc/doas.conf
 }
 
 install_cargo() {
@@ -212,12 +213,12 @@ main() {
 	if [[ $(whoaim) = "root" ]]; then
 		base_system
 		configure_pacman
+		configure_doas
 	fi
 	temporal_env
 	setup
 	create_dir_structure
 	clone_main_repos
-	configure_doas
 	install_cargo
 	install_paru
 	install_x11_deps
