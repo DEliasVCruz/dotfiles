@@ -79,7 +79,10 @@ configure_doas() {
 	echo "Installing doas"
 	printf "permit :wheel\npermit persist :wheel\n" >/etc/doas.conf
 	printf "permit setenv { XAUTHORITY LANG LC_ALL } :wheel\n\n" >>/etc/doas.conf
-	chown -R root:root /etc/doas.conf
+	chown -c root:root /etc/doas.conf
+	chmod -c 0400 /etc/doas.conf
+	pacman -Rns sudo
+	ln -s "$(which doas)" /usr/bin/sudo
 }
 
 create_dir_structure() {
