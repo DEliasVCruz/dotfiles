@@ -209,8 +209,10 @@ reboot_sys() {
 
 main() {
 	echo "Starting the script"
-	base_system
-	configure_pacman
+	if [[ $(whoaim) = "root" ]]; then
+		base_system
+		configure_pacman
+	fi
 	temporal_env
 	setup
 	create_dir_structure
