@@ -22,7 +22,7 @@ typeset -U path PATH
 path+=(
   $HOME/.cargo/bin(N-/)
   $GOPATH/bin(N-/)
-  $GOROOT/bin(N-/)
+  $GOBIN(N-/)
   $HOME/.local/bin(N-/)
   $HOME/scripts(N-/)
   $PYENV_ROOT/bin(N-/)

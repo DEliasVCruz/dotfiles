@@ -13,6 +13,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export GOROOT="/usr/local/go"
 export GOPATH="$XDG_DATA_HOME/go"
+export GOBIN="$GOPATH/bin"
 # export PATH="$PATH:$XDG_DATA_HOME/yarn/bin"
 
 # General user directories
