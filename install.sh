@@ -98,6 +98,13 @@ configure_doas() {
 	chown -R root:root /etc/doas.conf
 }
 
+install_cargo() {
+	printf "\nInstalling rustup"
+	pacman -S --noconfirm rustup
+	rustup install stable
+	rustup default stable && echo "Installed stable rust"
+}
+
 install_paru() {
 	echo "Installing paru AUR helper"
 	git clone https://aur.archlinux.org/paru.git $HOME/repos/paru
@@ -129,11 +136,6 @@ install_fonts() {
 }
 
 install_languages() {
-	printf "\nInstalling rustup"
-	paru -S --noconfirm rustup
-	rustup install stable
-	rustup default stable && echo "Installed stable rust"
-
 	printf "\nInstalling go"
 	cd /tmp && echo "Entering tmp dir"
 	wget https://go.dev/dl/go1.18.linux-amd64.tar.gz
@@ -213,6 +215,7 @@ main() {
 	create_dir_structure
 	clone_main_repos
 	configure_doas
+	install_cargo
 	install_paru
 	install_x11_deps
 	install_basic_tools
