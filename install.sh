@@ -98,14 +98,14 @@ clone_main_repos() {
 	echo "Installing st"
 	cd st/ && echo "Enterig st dir"
 	git checkout staging
-	make clean install && echo "Successfully installed st"
+	doas make clean install && echo "Successfully installed st"
 	back_home_from "repos"
 	$HOME/dotfiles/setup.sh
 }
 
 install_cargo() {
 	printf "\nInstalling rustup"
-	pacman -S --noconfirm rustup
+	doas pacman -S --noconfirm rustup
 	rustup install stable
 	rustup default stable && echo "Installed stable rust"
 }
@@ -147,8 +147,8 @@ install_languages() {
 	echo "Extracting files"
 	tar -xvf go1.18.linux-amd64.tar.gz && "Successfully extracted"
 	echo "Moving go folder"
-	mv go /usr/local
 	rm -rf go
+	doas mv go /usr/local
 	go version && echo "Installed go" || echo "No go install"
 
 	printf "\nInstalling python"
@@ -228,7 +228,7 @@ main() {
 	install_basic_tools
 	install_fonts
 	install_languages
-	chmod +x ./bin/*
+	doas chmod +x ./bin/*
 	install_basic_programs
 	install_audio
 	install_drivers
