@@ -35,6 +35,14 @@ configure_pacman() {
 	pacman-key --populate archlinux
 }
 
+setup() {
+	echo "Installing setup packages"
+	pacman -Syu --noconfirm doas wget dateutils doas git-dinit
+	pacman -S --noconfirm stow openssh openssh-dinit
+	chmod +x /home/daniel/dotfiles/setup.sh
+	back_home_from "$(pwd)"
+}
+
 temporal_env() {
 	export HOME="/home/daniel"
 	export XDG_DATA_HOME="$HOME/.local/share"
@@ -65,14 +73,6 @@ give_ownership_back() {
 	for dir in "$@"; do
 		chown -R daniel:daniel $HOME/"$dir"
 	done
-}
-
-setup() {
-	echo "Installing setup packages"
-	pacman -Syu --noconfirm doas wget dateutils doas git-dinit
-	pacman -S --noconfirm stow openssh openssh-dinit
-	chmod +x /home/daniel/dotfiles/setup.sh
-	back_home_from "$(pwd)"
 }
 
 configure_doas() {
@@ -214,9 +214,9 @@ main() {
 		base_system
 		configure_pacman
 		configure_doas
+		setup
 	fi
 	temporal_env
-	setup
 	create_dir_structure
 	clone_main_repos
 	install_cargo
