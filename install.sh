@@ -146,7 +146,7 @@ install_languages() {
 	echo "Moving go folder"
 	mv go /usr/local
 	rm -rf go
-	go versioin && echo "Installed go" || echo "No go install"
+	go version && echo "Installed go" || echo "No go install"
 
 	printf "\nInstalling python"
 	git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
