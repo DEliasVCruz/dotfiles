@@ -43,6 +43,16 @@ setup() {
 	back_home_from "$(pwd)"
 }
 
+configure_doas() {
+	echo "Installing doas"
+	printf "permit :wheel\npermit persist :wheel\n" >/etc/doas.conf
+	printf "permit setenv { XAUTHORITY LANG LC_ALL } :wheel\n\n" >>/etc/doas.conf
+	chown -c root:root /etc/doas.conf
+	chmod -c 0400 /etc/doas.conf
+	pacman -Rns sudo
+	ln -s "$(which doas)" /usr/bin/sudo
+}
+
 temporal_env() {
 	export HOME="/home/daniel"
 	export XDG_DATA_HOME="$HOME/.local/share"
@@ -67,16 +77,6 @@ clone() {
 		git clone https://github.com/DEliasVCruz/"$repo".git
 		echo "Cloning $repo repository"
 	done
-}
-
-configure_doas() {
-	echo "Installing doas"
-	printf "permit :wheel\npermit persist :wheel\n" >/etc/doas.conf
-	printf "permit setenv { XAUTHORITY LANG LC_ALL } :wheel\n\n" >>/etc/doas.conf
-	chown -c root:root /etc/doas.conf
-	chmod -c 0400 /etc/doas.conf
-	pacman -Rns sudo
-	ln -s "$(which doas)" /usr/bin/sudo
 }
 
 create_dir_structure() {
@@ -205,8 +205,8 @@ main() {
 	if [[ $(whoaim) = "root" ]]; then
 		base_system
 		configure_pacman
-		configure_doas
 		setup
+		configure_doas
 	fi
 	temporal_env
 	create_dir_structure
