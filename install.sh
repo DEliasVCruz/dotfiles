@@ -147,8 +147,8 @@ install_languages() {
 	echo "Extracting files"
 	tar -xvf go1.18.linux-amd64.tar.gz && "Successfully extracted"
 	echo "Moving go folder"
-	rm -rf go
 	doas mv go /usr/local
+	rm -rf go1.18.linux-amd64.tar.gz
 	go version && echo "Installed go" || echo "No go install"
 
 	printf "\nInstalling python"
