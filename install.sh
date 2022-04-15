@@ -53,7 +53,15 @@ configure_doas() {
 	ln -s "$(which doas)" /usr/bin/sudo
 }
 
+mid_install_message() {
+	printf "Please reboot your machine\n"
+	printf "Then re-log on your user account\n"
+	printf "Run this script again to continue with the install\n"
+	exit
+}
+
 temporal_env() {
+	echo "Continuing with installation as $(whoaim)"
 	export HOME="/home/daniel"
 	export XDG_DATA_HOME="$HOME/.local/share"
 	export CARGO_HOME="$XDG_DATA_HOME/cargo"
@@ -207,6 +215,7 @@ main() {
 		configure_pacman
 		setup
 		configure_doas
+		mid_install_message
 	fi
 	temporal_env
 	create_dir_structure
