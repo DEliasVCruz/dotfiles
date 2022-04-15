@@ -197,7 +197,7 @@ install_basic_programs() {
 	paru -S --noconfirm kitty
 	echo "Installing browser"
 	paru -S --noconfirm firefox
-	update_nvim
+	doas update_nvim
 }
 
 main() {
