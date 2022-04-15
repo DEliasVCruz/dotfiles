@@ -69,12 +69,6 @@ clone() {
 	done
 }
 
-give_ownership_back() {
-	for dir in "$@"; do
-		chown -R daniel:daniel $HOME/"$dir"
-	done
-}
-
 configure_doas() {
 	echo "Installing doas"
 	printf "permit :wheel\npermit persist :wheel\n" >/etc/doas.conf
@@ -228,8 +222,6 @@ main() {
 	install_audio
 	install_drivers
 	configure_zsh
-	give_ownership_back scripts repos bin repos Desktop
-	give_ownership_back Downloads Documents .local .config
 }
 
 main
