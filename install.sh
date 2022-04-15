@@ -40,6 +40,7 @@ setup() {
 	pacman -Syu --noconfirm doas wget dateutils doas git-dinit
 	pacman -S --noconfirm stow openssh openssh-dinit
 	chmod +x /home/daniel/dotfiles/setup.sh
+	chown -R daniel:daniel /home/daniel/dotfiles
 	back_home_from "$(pwd)"
 }
 
