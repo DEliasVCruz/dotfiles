@@ -39,7 +39,6 @@ setup() {
 	echo "Installing setup packages"
 	pacman -Syu --noconfirm doas wget dateutils doas git-dinit
 	pacman -S --noconfirm stow openssh openssh-dinit
-	chmod +x /home/daniel/dotfiles/setup.sh
 	chown -R daniel:daniel /home/daniel/dotfiles
 }
 
@@ -102,7 +101,7 @@ clone_main_repos() {
 	git checkout staging
 	doas make clean install && echo "Successfully installed st"
 	back_home_from "repos"
-	$HOME/dotfiles/setup.sh
+	cd $DOT && stow */
 }
 
 install_cargo() {
