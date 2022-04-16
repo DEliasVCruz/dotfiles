@@ -211,7 +211,7 @@ install_basic_programs() {
 
 main() {
 	echo "Starting the script"
-	if [[ $(whoaim) = "root" ]]; then
+	if [[ $(whoami) = "root" ]]; then
 		base_system
 		configure_pacman
 		setup
