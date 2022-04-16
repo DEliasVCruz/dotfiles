@@ -41,7 +41,6 @@ setup() {
 	pacman -S --noconfirm stow openssh openssh-dinit
 	chmod +x /home/daniel/dotfiles/setup.sh
 	chown -R daniel:daniel /home/daniel/dotfiles
-	back_home_from "$(pwd)"
 }
 
 configure_doas() {
@@ -58,7 +57,6 @@ mid_install_message() {
 	printf "Please reboot your machine\n"
 	printf "Then re-log on your user account\n"
 	printf "Run this script again to continue with the install\n"
-	exit
 }
 
 temporal_env() {
@@ -217,6 +215,7 @@ main() {
 		setup
 		configure_doas
 		mid_install_message
+		return 0
 	fi
 	temporal_env
 	create_dir_structure
