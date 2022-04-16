@@ -100,8 +100,8 @@ clone_main_repos() {
 	cd st/ && echo "Enterig st dir"
 	git checkout staging
 	doas make clean install && echo "Successfully installed st"
+	cd $DOT && stow -v */
 	back_home_from "repos"
-	cd $DOT && stow */
 }
 
 install_cargo() {
