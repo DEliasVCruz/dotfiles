@@ -87,10 +87,10 @@ clone() {
 }
 
 create_dir_structure() {
-	mkdir $HOME/.config $XDG_DATA_HOME/backgrounds
-	mkdir $CARGO_HOME
-	mkdir $HOME/scripts $HOME/repos $HOME/bin
-	mkdir $HOME/Desktop $HOME/Downloads $HOME/Documents
+	mkdir -p $HOME/.config $XDG_DATA_HOME/backgrounds
+	mkdir -p $CARGO_HOME
+	mkdir -p $HOME/scripts $HOME/repos $HOME/bin
+	mkdir -p $HOME/Desktop $HOME/Downloads $HOME/Documents
 }
 
 clone_main_repos() {
