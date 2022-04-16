@@ -96,12 +96,17 @@ create_dir_structure() {
 clone_main_repos() {
 	cd $HOME/repos && echo "Entering repos dir"
 	clone CristalMoon st ZettlekastenNotes
+	prinft "Entering dotfiles direcotry"
+	cd $DOT && stow -v */ && printf "\nFinish stowing all directories successfully\n"
+	back_home_from "dotfiles"
+}
+
+install_st() {
 	echo "Installing st"
-	cd st/ && echo "Enterig st dir"
+	cd "$HOME"/repos/st/ && echo "Enterig st dir"
 	git checkout staging
 	doas make clean install && echo "Successfully installed st"
-	cd $DOT && stow -v */
-	back_home_from "repos"
+	back_home_from "st"
 }
 
 install_cargo() {
@@ -185,6 +190,8 @@ install_basic_programs() {
 	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
 	paru -S --noconfirm libqalculate unclutter jq playerctl btop
 	paru -S --noconfirm picom-jonaburg-git herbstluftwm exa nsxiv
+
+	install_st
 
 	if [ -e /etc/xdg/herbstluftwm/autostart ]; then
 		echo "Installing herbstluftwm files"
