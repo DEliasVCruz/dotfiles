@@ -60,7 +60,7 @@ mid_install_message() {
 }
 
 temporal_env() {
-	echo "Continuing with installation as $(whoaim)"
+	echo "Continuing with installation as $(whoami)"
 	export HOME="/home/daniel"
 	export XDG_DATA_HOME="$HOME/.local/share"
 	export CARGO_HOME="$XDG_DATA_HOME/cargo"
