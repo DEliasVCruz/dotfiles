@@ -48,7 +48,7 @@ configure_doas() {
 	printf "permit setenv { XAUTHORITY LANG LC_ALL } :wheel\n\n" >>/etc/doas.conf
 	chown -c root:root /etc/doas.conf
 	chmod -c 0400 /etc/doas.conf
-	pacman -Rns sudo && printf "\nSudo has been removed\n"
+	pacman -Rns --noconfirm sudo && printf "\nSudo has been removed\n"
 	ln -s "$(which doas)" /usr/bin/sudo
 }
 
