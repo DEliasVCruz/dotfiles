@@ -118,7 +118,7 @@ install_cargo() {
 
 install_paru() {
 	echo "Installing paru AUR helper"
-	git clone https://aur.archlinux.org/paru.git $HOME/repos/paru
+	git clone https://aur.archlinux.org/paru-bin.git $HOME/repos/paru
 	cd $HOME/repos/paru && echo "Entering paru dir"
 	makepkg -si
 	back_home_from "paru"
