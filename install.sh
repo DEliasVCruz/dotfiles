@@ -190,6 +190,17 @@ install_audio() {
 	paru -S --noconfirm rsmixer
 }
 
+install_neovim() {
+	echo "Begining neovim installation"
+	echo "Installing neovim build dependencies"
+	paru -S --noconfirm cmake unzip ninja tree-sitter && echo "Successfully installed dependencies"
+	echo "Cloning main neovim repo"
+	git clone https://github.com/neovim/neovim "$HOME"/repos/neovim
+	cd "$HOME"/repos/neovim && echo "Entering neovim repo"
+	echo "Building release version"
+	make CMAKE_BUILD_TYPE=Release && echo "Successfully build neovim"
+}
+
 install_basic_programs() {
 	paru -S --noconfirm bat ripgrep fd fzf zsh keepassxc zoxide glow
 	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
@@ -217,7 +228,7 @@ install_basic_programs() {
 	echo "Installing browser"
 	paru -S --noconfirm firefox
 	pip install ptpython
-	doas update_nvim
+	install_neovim
 }
 
 main() {
