@@ -128,7 +128,6 @@ install_paru() {
 	doas pacman -Rns --noconfirm yay
 	rm -rf "$HOME"/.config/yay
 }
-}
 
 install_x11_deps() {
 	echo "Installing x11 packages"
