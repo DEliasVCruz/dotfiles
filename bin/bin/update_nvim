@@ -9,22 +9,22 @@ NORMAL=$(tput sgr0)
 
 # Check if necessary applications are installed
 if ! [ -x "$(command -v wget)" ]; then
-  printf "\n${RED}wget not found in path. Please install it to continue!${NC}\n"
+  echo -e "\n${RED}wget not found in path. Please install it to continue!${NC}\n"
   exit
 fi
 
 if ! [ -x "$(command -v curl)" ]; then
-  printf "\n${RED}curl not found in path. Please install it to continue!${NC}\n"
+  echo -e "\n${RED}curl not found in path. Please install it to continue!${NC}\n"
   exit
 fi
 
 if ! [ -x "$(command -v xmllint)" ]; then
-  printf "\n${RED}xmllint not found in path. Please install it to continue!${NC}\n"
+  echo -e "\n${RED}xmllint not found in path. Please install it to continue!${NC}\n"
   exit
 fi
 
 if ! [ -x "$(command -v datediff)" ]; then
-  printf "\n${RED}dateutils not found in path. Please install it to continue!${NC}\n"
+  echo -e "\n${RED}dateutils not found in path. Please install it to continue!${NC}\n"
   exit
 fi
 
@@ -33,7 +33,7 @@ wget https://github.com/neovim/neovim/releases/tag/nightly -q -O - > /tmp/nvim28
 RESPONSE=$(wget https://github.com/neovim/neovim/releases/tag/nightly --save-headers -O - 2>&1)
 
 if [[ "$RESPONSE" =~ 404\ Not\ Found ]]; then
-  printf "${RED}Couldn't fetch newest Neovim Nighly info. Aborting...${NC}\n"
+  echo -e "${RED}Couldn't fetch newest Neovim Nighly info. Aborting...${NC}\n"
   exit
 fi
 
@@ -47,25 +47,25 @@ LAST_RELEASE_DATETIME_DIFF=$(datediff ${NEW_NVIM_VER_RELEASE_DATETIME_ISO} ${CUR
 
 # Check if Neovim Nightly exists in repo
 if [[ "$NEW_NVIM_VER" == "" ]]; then
-  printf "\n${RED}Couldn't fetch latest Neovim Nightly version from github repo! Check if it exists. Aborting...${NC}\n"
+  echo -e "\n${RED}Couldn't fetch latest Neovim Nightly version from github repo! Check if it exists. Aborting...${NC}\n"
   exit
 fi
 
 # Check if the current neovim version is the latest
 if [[ "$CURR_NVIM_VER" == "$NEW_NVIM_VER" ]]; then
-  printf "\n${RED}No new version of ${BOLD}Neovim Nightly${NORMAL}${RED} found!\n${NC}Last release: ${LAST_RELEASE_DATETIME_DIFF}\nAborting...\n"
+  echo -e "\n${RED}No new version of ${BOLD}Neovim Nightly${NORMAL}${RED} found!\n${NC}Last release: ${LAST_RELEASE_DATETIME_DIFF}\nAborting...\n"
   exit
 fi
 
 # If a newer version of Neovim Nightly found show prompt
 if [[ CURR_NVIM_VER != NEW_NVIM_VER ]]; then
-  printf "\n${GREEN}New ${BOLD}Neovim Nightly${NORMAL}${GREEN} version found!${NC}\n${CURR_NVIM_VER} -> ${BOLD}${NEW_NVIM_VER}${NORMAL}\nReleased: ${LAST_RELEASE_DATETIME_DIFF}\n\n"
   SHOW_PROMPT=1
+  echo -e "\n${GREEN}New ${BOLD}Neovim Nightly${NORMAL}${GREEN} version found!${NC}\n${CURR_NVIM_VER} -> ${BOLD}${NEW_NVIM_VER}${NORMAL}\nReleased: ${LAST_RELEASE_DATETIME_DIFF}\n\n"
 fi
 
 # Update function
 update_neovim() {
-  printf "${RED}Updating Neovim Nightly...${NC}\n"
+  echo -e "${RED}Updating Neovim Nightly...${NC}\n"
   HTTPS_URL="https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
   CURL_CMD="curl -L -w http_code=%{http_code}"
   CURL_OUTPUT=`${CURL_CMD} ${HTTPS_URL} -o /tmp/nvim`
@@ -76,9 +76,9 @@ update_neovim() {
     chmod +x /tmp/nvim;
     sudo cp /tmp/nvim /usr/local/bin;
     sudo mv /tmp/nvim /usr/bin;
-    printf "${GREEN}Neovim Nightly has been updated successfully!${NC}\n"
+    echo -e "${GREEN}Neovim Nightly has been updated successfully!${NC}\n"
   else
-    printf "${RED}Neovim Nightly has NOT been updated! ERROR: ${ERROR_MESSAGE}${NC}\n"
+    echo -e "${RED}Neovim Nightly has NOT been updated! ERROR: ${ERROR_MESSAGE}${NC}\n"
   fi
 }
 
