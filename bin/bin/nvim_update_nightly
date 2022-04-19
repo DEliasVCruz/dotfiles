@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Entering neovim repo"
+cd "$HOME"/repos/neovimj
+echo "Pulling latests changes"
+git pull
+echo "Building latest neovim nightly"
+make distclean && make CMAKE_BUILD_TYPE=Release && echo "Successfully updated neovim nightly"
