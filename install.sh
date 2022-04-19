@@ -170,7 +170,7 @@ install_languages() {
 	eval "$(pyenv init --path)" && echo "Successfully initialized pyenv path"
 	eval "$(pyenv init -)" && echo "Successfully initialized pyenv"
 	pyenv install -v 3.8.0
-	pyenv global -v 3.8.0
+	pyenv global 3.8.0
 	back_home_from "pyenv"
 }
 
