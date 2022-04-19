@@ -119,7 +119,7 @@ install_cargo() {
 install_paru() {
 	echo "Installing paru AUR helper"
 	doas pacman -S --noconfirm yay
-	yay -S --noconfirm paru
+	yay -S --noconfirm paru-bin
 
 	if [[ $(command -v paru) ]]; then
 		echo "paru was successfully installed"
