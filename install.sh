@@ -151,7 +151,7 @@ install_languages() {
 	cd /tmp && echo "Entering tmp dir"
 	wget https://go.dev/dl/go1.18.linux-amd64.tar.gz
 	echo "Extracting files"
-	tar -xvf go1.18.linux-amd64.tar.gz && "Successfully extracted"
+	tar -xvf go1.18.linux-amd64.tar.gz && echo "Successfully extracted"
 	echo "Moving go folder"
 	doas mv go /usr/local
 	rm -rf go1.18.linux-amd64.tar.gz
