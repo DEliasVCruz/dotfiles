@@ -13,7 +13,7 @@ xset r rate 200 40 &
 
 # Start some nice programs
 unclutter &
-setwallpaper "$XDG_DATA_HOME"/backgrounds/2021-08-11-13-17-47-fallen_angel_face.jpg &
+"$GOBIN"/setwallpaper "$XDG_DATA_HOME"/backgrounds/2021-08-11-13-17-47-fallen_angel_face.jpg &
 picom --config ~/.config/picom/picom.conf --experimental-backend -b &
 # dunst &
 # picom &
