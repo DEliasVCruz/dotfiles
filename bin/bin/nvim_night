@@ -1,3 +1,5 @@
 #!/bin/sh
 
+# For trouble shooting read:
+# https://dev.to/creativenull/installing-neovim-nightly-alongside-stable-10d0
 VIMRUNTIME="$HOME"/repos/neovim/runtime "$HOME"/repos/neovim/build/bin/nvim
