@@ -38,7 +38,6 @@ if [[ "$RESPONSE" =~ 404\ Not\ Found ]]; then
 fi
 
 # Variables
-SHOW_PROMPT=0
 CURR_NVIM_VER=$(nvim --version | head -n 1)
 NEW_NVIM_VER=$(xmllint --html --xpath "//pre//code/node()" /tmp/nvim28dce75c-4317-4006-a103-8069d573e2b2 2>/dev/null | grep NVIM)
 CURR_DATETIME_ISO=$(date --iso-8601=ns)
@@ -59,7 +58,6 @@ fi
 
 # If a newer version of Neovim Nightly found show prompt
 if [[ CURR_NVIM_VER != NEW_NVIM_VER ]]; then
-  SHOW_PROMPT=1
   echo -e "\n${GREEN}New ${BOLD}Neovim Nightly${NORMAL}${GREEN} version found!${NC}\n${CURR_NVIM_VER} -> ${BOLD}${NEW_NVIM_VER}${NORMAL}\nReleased: ${LAST_RELEASE_DATETIME_DIFF}\n\n"
 fi
 
@@ -84,11 +82,4 @@ update_neovim() {
 
 rm /tmp/nvim28dce75c-4317-4006-a103-8069d573e2b2
 
-while [ $SHOW_PROMPT -gt 0 ]; do
-    read -p "Do you wish to update neovim? [yes/no] " yn
-    case $yn in
-        [Yy]* ) update_neovim; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+update_neovim
