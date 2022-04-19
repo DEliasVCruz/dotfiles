@@ -199,6 +199,8 @@ install_neovim() {
 	cd "$HOME"/repos/neovim && echo "Entering neovim repo"
 	echo "Building release version"
 	make CMAKE_BUILD_TYPE=Release && echo "Successfully build neovim"
+	echo "Installing stable neovim"
+	paru -S --noconfirm neovim
 }
 
 install_basic_programs() {
