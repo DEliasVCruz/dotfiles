@@ -216,6 +216,7 @@ install_basic_programs() {
 	paru -S --noconfirm kitty
 	echo "Installing browser"
 	paru -S --noconfirm firefox
+	pip install ptpython
 	doas update_nvim
 }
 
