@@ -118,10 +118,16 @@ install_cargo() {
 
 install_paru() {
 	echo "Installing paru AUR helper"
-	git clone https://aur.archlinux.org/paru-bin.git $HOME/repos/paru
-	cd $HOME/repos/paru && echo "Entering paru dir"
-	makepkg -si
-	back_home_from "paru"
+	doas pacman -S --noconfirm yay
+	yay -S --noconfirm paru
+
+	if [[ $(command -v paru) ]]; then
+		echo "paru was successfully installed"
+	fi
+
+	doas pacman -Rns --noconfirm yay
+	rm -rf "$HOME"/.config/yay
+}
 }
 
 install_x11_deps() {
