@@ -110,7 +110,7 @@ install_st() {
 }
 
 install_cargo() {
-	printf "\nInstalling rustup"
+	printf "\nInstalling rustup\n"
 	doas pacman -S --noconfirm rustup
 	rustup install stable
 	rustup default stable && echo "Installed stable rust"
@@ -147,7 +147,7 @@ install_fonts() {
 }
 
 install_languages() {
-	printf "\nInstalling go"
+	printf "\nInstalling go\n"
 	cd /tmp && echo "Entering tmp dir"
 	wget https://go.dev/dl/go1.18.linux-amd64.tar.gz
 	echo "Extracting files"
@@ -157,7 +157,7 @@ install_languages() {
 	rm -rf go1.18.linux-amd64.tar.gz
 	go version && echo "Installed go" || echo "No go install"
 
-	printf "\nInstalling python"
+	printf "\nInstalling python\n"
 	git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
 	echo "Entering pyenv repo"
 	cd $PYENV_ROOT && src/configure && make -C src
