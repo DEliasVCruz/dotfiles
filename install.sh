@@ -177,7 +177,7 @@ install_languages() {
 configure_zsh() {
 	cargo install sheldon
 	cargo install starship --locked
-	chsh -s /bin/zsh daniel
+	doas chsh -s /bin/zsh daniel
 }
 
 install_drivers() {
