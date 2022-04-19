@@ -100,7 +100,7 @@ function _init_alias {
     alias r="radian"    # The better R interactive shell
 
     # Editor
-    alias e="nvim"
+    alias e="nvim_night"
 
     # Arch package manager
     alias ins="paru -S"       # Install from the AUR
