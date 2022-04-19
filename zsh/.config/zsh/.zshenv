@@ -25,6 +25,7 @@ path+=(
   $GOBIN(N-/)
   $HOME/.local/bin(N-/)
   $HOME/scripts(N-/)
+  $HOME/bin(N-/)
   $PYENV_ROOT/bin(N-/)
   # $PYENV_ROOT/bin(N-/)
   $HOME/.poetry/bin(N-/)
