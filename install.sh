@@ -193,7 +193,7 @@ install_audio() {
 install_basic_programs() {
 	paru -S --noconfirm bat ripgrep fd fzf zsh keepassxc zoxide glow
 	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
-	paru -S --noconfirm libqalculate unclutter jq playerctl btop
+	paru -S --noconfirm libqalculate unclutter jq playerctl btop sx
 	paru -S --noconfirm picom-jonaburg-git herbstluftwm exa nsxiv
 
 	install_st
