@@ -176,7 +176,7 @@ install_languages() {
 
 configure_zsh() {
 	cargo install sheldon
-	cargo install starship --locked
+	paru -S --noconfirm starship
 	doas chsh -s /bin/zsh daniel
 }
 
@@ -187,7 +187,7 @@ install_drivers() {
 install_audio() {
 	paru -S --noconfirm pipewire wireplumber
 	paru -S --noconfirm pipewire-pulse pipewire-alsa pipewire-jack
-	cargo install rsmixer
+	paru -S --noconfirm rsmixer
 }
 
 install_basic_programs() {
@@ -210,7 +210,7 @@ install_basic_programs() {
 
 	go install github.com/xyproto/wallutils/cmd/setwallpaper@latest
 	go install github.com/xyproto/wallutils/cmd/xinfo@latest
-	cargo install rm-improved
+	paru -S --noconfirm rm-improved
 	curl -o $HOME/bin/cn https://gitlab.com/arijit79/cn/uploads/991b176a489f90556c3f2b857f3b974f/cn
 	echo "Installing terminals"
 	paru -S --noconfirm kitty
