@@ -6,8 +6,8 @@
 
 # Merge in defaults and keymaps
 xrandr --dpi 96 &
-xrdb --merge ~/.config/x11/xresources &
 setxkbmap -option swapcaps:ctrl &
+xrdb ~/.config/x11/xresources &
 xset r rate 200 40 &
 # setxkbmap -layout us,ara -option grp:win_space_toggle,caps:escape &
 
