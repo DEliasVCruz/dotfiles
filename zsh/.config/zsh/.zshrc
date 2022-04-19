@@ -5,6 +5,7 @@ SAVEHIST=1000000
 
 # Env Variables
 # export PATH="$HOME/.poetry/bin:$PATH"
+source ./.zshenv
 
 # # Evals
 # export PATH="$PYENV_ROOT/bin:$PATH"
