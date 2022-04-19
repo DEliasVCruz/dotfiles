@@ -9,7 +9,7 @@ base_system() {
 	sed -i -r "s/#(ja_JP\.UTF.*)/\1/g" /etc/locale.gen
 	locale-gen
 	echo 'LANG="en_US.UTF-8"' >/etc/locale.conf
-	echo 'LC_COLLATE="C"'
+	printf '\nLC_COLLATE="C"\n' >>/etc/locale.conf
 
 	echo "Configuring bootloader"
 	pacman -S --noconfirm grub      #efibootmgr
