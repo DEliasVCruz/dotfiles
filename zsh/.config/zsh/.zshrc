@@ -37,6 +37,11 @@ function _zvm_config {
     ZVM_ESCAPE_KEYTIMEOUT=0.1
 }
 
+function _plugin_config {
+    _zstyle_completion
+    _zvm_config
+}
+
 function _init_plugin {
 
     eval "$(sheldon source)"
@@ -102,7 +107,7 @@ function _main() {
     _init_local
     _init_options
     eval "$(starship init zsh)"
-    _zstyle_completion
+    _plugin_config
     _init_plugin
     _init_alias
 }
