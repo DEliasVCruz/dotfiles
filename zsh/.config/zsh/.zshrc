@@ -104,7 +104,6 @@ function main() {
     _init_options
     _zstyle_completion
     _init_plugin
-    _init_local
     _init_alias
 }
 
