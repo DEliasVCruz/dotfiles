@@ -39,7 +39,7 @@ function zvm_config {
 
 function _init_plugin {
 
-    eval "$(starship init zsh)"
+    eval "$(sheldon source)"
 
     autoload -U compinit
     compinit -d "$ZSH_DATA/.zcompdump"
