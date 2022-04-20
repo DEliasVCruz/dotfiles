@@ -163,8 +163,12 @@ install_languages() {
 	back_home_from "pyenv"
 	eval "$(pyenv init --path)" && echo "Successfully initialized pyenv path"
 	eval "$(pyenv init -)" && echo "Successfully initialized pyenv"
+
+	echo "Installing python 3.8.13"
 	pyenv install -v 3.8.13
 	pyenv global 3.8.13
+	command -v python && echo "Successfully installed python"
+
 	echo "Upgrading pip to latest version"
 	python -m pip install --upgrade pip && echo "Successfully upgraded pip"
 	back_home_from "pyenv"
