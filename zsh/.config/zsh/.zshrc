@@ -100,8 +100,8 @@ function _init_alias {
 
 function main() {
     _init_local
-    eval "$(starship init zsh)"
     _init_options
+    eval "$(starship init zsh)"
     _zstyle_completion
     _init_plugin
     _init_alias
