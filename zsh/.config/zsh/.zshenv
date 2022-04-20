@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 
 export EDITOR='nvim'
 export VISUAL='nvim'
-export DOT=$HOME/dotfiles
+export DOT="$HOME/dotfiles"
 export TERMINAL=kitty
 export PAGER='less'
 export MANPAGER="sh -c 'col -bx | bat --theme=Monokai\ Extended -l man -p'" # Using "bat" as a manpager

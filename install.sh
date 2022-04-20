@@ -69,7 +69,7 @@ temporal_env() {
 	export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 	export PATH="$PYENV_ROOT/bin:$PATH"
 	export GOPATH="$XDG_DATA_HOME/go"
-	export DOT="$HOME/dotfiles/"
+	export DOT="$HOME/dotfiles"
 	export GOBIN="$GOPATH/bin"
 	export GOROOT="/usr/local/go"
 	export PATH="$GOBIN:$GOROOT/bin:$PATH"
