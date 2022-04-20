@@ -102,14 +102,6 @@ clone_main_repos() {
 	back_home_from "dotfiles"
 }
 
-install_st() {
-	echo "Installing st"
-	cd "$HOME"/repos/st/ && echo "Enterig st dir"
-	git checkout staging
-	doas make clean install && echo "Successfully installed st"
-	back_home_from "st"
-}
-
 install_cargo() {
 	printf "\nInstalling rustup\n"
 	doas pacman -S --noconfirm rustup
@@ -206,6 +198,14 @@ install_audio() {
 	paru -S --noconfirm pipewire wireplumber
 	paru -S --noconfirm pipewire-pulse pipewire-alsa pipewire-jack
 	paru -S --noconfirm rsmixer
+}
+
+install_st() {
+	echo "Installing st"
+	cd "$HOME"/repos/st/ && echo "Enterig st dir"
+	git checkout staging
+	doas make clean install && echo "Successfully installed st"
+	back_home_from "st"
 }
 
 install_neovim() {
