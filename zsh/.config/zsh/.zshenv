@@ -29,6 +29,7 @@ path+=(
   $HOME/scripts(N-/)
   $HOME/bin(N-/)
   $PYENV_ROOT/bin(N-/)
+  $PIPX_BIN_DIR(N-/)
   $ZSH_DATA/completions(N-/)
   # $PYENV_ROOT/bin(N-/)
   $HOME/.poetry/bin(N-/)

@@ -67,6 +67,9 @@ temporal_env() {
 	export PATH="$HOME/scripts:$PATH"
 	export PATH="$HOME/bin:$PATH"
 	export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+	export PIPX_HOME="$XDG_DATA_HOME/pipx"
+	export PIPX_BIN_DIR="$PIPX_HOME/bin"
+	export PATH="$PIPX_BIN_DIR:$PATH"
 	export PATH="$PYENV_ROOT/bin:$PATH"
 	export GOPATH="$XDG_DATA_HOME/go"
 	export DOT="$HOME/dotfiles"
@@ -74,6 +77,7 @@ temporal_env() {
 	export GOBIN="$GOPATH/bin"
 	export GOROOT="/usr/local/go"
 	export PATH="$GOBIN:$GOROOT/bin:$PATH"
+	export PATH="$HOME/.local/bin:$PATH"
 }
 
 back_home_from() {
@@ -89,7 +93,7 @@ clone() {
 
 create_dir_structure() {
 	mkdir -p $HOME/.config $XDG_DATA_HOME/backgrounds
-	mkdir -p $CARGO_HOME $ZSH_DATA
+	mkdir -p $CARGO_HOME $ZSH_DATA $PIPX_BIN_DIR
 	mkdir -p $HOME/scripts $HOME/repos $HOME/bin
 	mkdir -p $HOME/Desktop $HOME/Downloads $HOME/Documents
 }
@@ -253,7 +257,15 @@ install_basic_programs() {
 	paru -S --noconfirm kitty
 	echo "Installing browser"
 	paru -S --noconfirm firefox
-	pip install ptpython
+
+	echo "Installing pipx"
+	python3.10 -m pip install --user pipx
+	python3.10 -m pipx ensurepath
+
+	echo "installing python applications"
+	python3.10 -m pipx install --python python3.10 ptpython && echo "Successfully installed ptpython"
+	python3.10 -m pipx install --python python3.10 poetry && echo "Successfully installed poetry"
+
 	install_neovim
 }
 

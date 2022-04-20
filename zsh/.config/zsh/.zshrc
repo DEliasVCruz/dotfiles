@@ -88,8 +88,9 @@ function _init_alias {
     alias ff="find . -type f -name" # Find file by name in cwd
 
     # Python programming language
-    alias pyrepl="python -m ptpython" # The python REPL interactive shell
+    alias pyrepl="ptpython" # The python REPL interactive shell
     alias pip="python -m pip"
+    alias pipx="python3.10 -m pipx"
 
     # Better utils
     alias rm="rip"

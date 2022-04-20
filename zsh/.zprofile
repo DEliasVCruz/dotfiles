@@ -14,6 +14,8 @@ export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export GOROOT="/usr/local/go"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN="$GOPATH/bin"
+export PIPX_HOME="$XDG_DATA_HOME/pipx"
+export PIPX_BIN_DIR="$PIPX_HOME/bin"
 export ZSH_DATA="$XDG_DATA_HOME/zsh"
 # export PATH="$PATH:$XDG_DATA_HOME/yarn/bin"
 
