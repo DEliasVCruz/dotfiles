@@ -19,11 +19,11 @@ picom --config ~/.config/picom/picom.conf --experimental-backend -b &
 # picom &
 
 # Setup audio
-pipewire &
-pipewire-alsa &
-pipewire-pulse &
-pipwerire-jack &
-wireplumber &
+/usr/bin/pipewire &
+/usr/bin/pipewire-alsa &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipwerire-jack &
+/usr/bin/wireplumber &
 
 # Update exchange rates
 qalc -exrates >/dev/null &
