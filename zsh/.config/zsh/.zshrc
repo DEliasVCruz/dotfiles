@@ -29,12 +29,6 @@ function _zstyle_completion {
     zstyle ':fzf-tab:*' switch-group ',' '.'
 }
 
-function _init_prompt {
-	if (($ + commands[starship])); then
-		eval "$(starship init zsh)"
-	fi
-}
-
 function zvm_config {
     ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
     ZVM_VI_ESCAPE_BINDKEY=^c
@@ -106,7 +100,7 @@ function _init_alias {
 
 function main() {
     _init_local
-    _init_prompt
+    eval "$(starship init zsh)"
     _init_options
     _zstyle_completion
     _init_plugin
