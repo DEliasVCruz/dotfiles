@@ -33,18 +33,8 @@ function _zstyle_completion {
     zstyle ':fzf-tab:*' switch-group ',' '.'
 }
 
-# function _debug {
-# 	autoload -U colors && colors
-
-# 	# set this variable to 1 to enable debug information
-# 	if ((${DEBUG_ZSH_RC:-0} == 1)); then
-# 		echo "$fg[green]INFO$reset_color: $1"
-# 	fi
-# }
-
 function _init_prompt {
 	if (($ + commands[starship])); then
-		# _debug "initialize starship prompt"
 		eval "$(starship init zsh)"
 	fi
 }
@@ -58,7 +48,6 @@ function zvm_config {
 }
 
 function _init_plugin {
-    # _debug "sourcing plugins"
 
     eval "$(starship init zsh)"
 
