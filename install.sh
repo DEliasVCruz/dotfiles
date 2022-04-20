@@ -177,7 +177,23 @@ install_languages() {
 }
 
 configure_zsh() {
-	cargo install sheldon
+	echo "Installing sheldon"
+
+	echo "Downloading the latest release"
+	local tempdir
+	tempdir=$(mktemp -d)
+	curl -o "$tempdir"/sheldon-0.6.6-x86_64-unknown-linux-musl.tar.gz -L https://github.com/rossmacarthur/sheldon/releases/download/0.6.6/sheldon-0.6.6-x86_64-unknown-linux-musl.tar.gz
+
+	echo "Untaring the files"
+	tar -xvf "$tempdir"/sheldon-0.6.6-x86_64-unknown-linux-musl.tar.gz -C "$tempdir" && echo "Successfully untar sheldon files"
+
+	echo "Moving files to path"
+	doas mv "$tempdir"/sheldon /usr/bin
+	echo "Creating completions"
+	mkdir -p "$ZSH_DATA"/completions
+	mv "$tempdir"/completions/sheldon.zsh "$ZSH_DATA"/completions/_sheldon && echo "Successfully move sheldon completions files"
+	command -v sheldon && echo "Successfully installed sheldon" || echo "Could not install sheldon"
+
 	paru -S --noconfirm starship
 	doas chsh -s /bin/zsh daniel
 }
