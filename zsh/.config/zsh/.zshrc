@@ -29,7 +29,7 @@ function _zstyle_completion {
     zstyle ':fzf-tab:*' switch-group ',' '.'
 }
 
-function zvm_config {
+function _zvm_config {
     ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
     ZVM_VI_ESCAPE_BINDKEY=^c
     ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
@@ -98,7 +98,7 @@ function _init_alias {
     alias gds="git diff --staged HEAD"
 }
 
-function main() {
+function _main() {
     _init_local
     _init_options
     eval "$(starship init zsh)"
@@ -107,4 +107,4 @@ function main() {
     _init_alias
 }
 
-main
+_main
