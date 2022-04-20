@@ -63,7 +63,7 @@ function _init_plugin {
     eval "$(starship init zsh)"
 
     autoload -U compinit
-    compinit
+    compinit -d "$ZSH_DATA/.zcompdump"
 }
 
 function _init_local {

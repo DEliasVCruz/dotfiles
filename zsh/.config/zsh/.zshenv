@@ -12,6 +12,7 @@ export PAGER='less'
 export MANPAGER="sh -c 'col -bx | bat --theme=Monokai\ Extended -l man -p'" # Using "bat" as a manpager
 export FZF_DEFAULT_OPTS="--layout=reverse --info=inline -i"
 export GRAVEYARD="$XDG_DATA_HOME/trash"
+export HISTFILE="$ZSH_DATA/history"
 export _ZO_ECHO=1
 export _ZO_RESOLVE_SYMLINKS=1
 # export BROWSER=/usr/bin/xdg-open
@@ -28,6 +29,7 @@ path+=(
   $HOME/scripts(N-/)
   $HOME/bin(N-/)
   $PYENV_ROOT/bin(N-/)
+  $ZSH_DATA/completions(N-/)
   # $PYENV_ROOT/bin(N-/)
   $HOME/.poetry/bin(N-/)
   # $path

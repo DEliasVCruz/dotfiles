@@ -70,6 +70,7 @@ temporal_env() {
 	export PATH="$PYENV_ROOT/bin:$PATH"
 	export GOPATH="$XDG_DATA_HOME/go"
 	export DOT="$HOME/dotfiles"
+	export ZSH_DATA="$XDG_DATA_HOME/zsh"
 	export GOBIN="$GOPATH/bin"
 	export GOROOT="/usr/local/go"
 	export PATH="$GOBIN:$GOROOT/bin:$PATH"
@@ -88,7 +89,7 @@ clone() {
 
 create_dir_structure() {
 	mkdir -p $HOME/.config $XDG_DATA_HOME/backgrounds
-	mkdir -p $CARGO_HOME
+	mkdir -p $CARGO_HOME $ZSH_DATA
 	mkdir -p $HOME/scripts $HOME/repos $HOME/bin
 	mkdir -p $HOME/Desktop $HOME/Downloads $HOME/Documents
 }
