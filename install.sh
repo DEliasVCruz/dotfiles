@@ -93,7 +93,7 @@ clone() {
 
 create_dir_structure() {
 	mkdir -p "$HOME"/.config "$XDG_DATA_HOME"/backgrounds
-	mkdir -p "$CARGO_HOME"/bin "$ZSH_DATA" "$PIPX_BIN_DIR"
+	mkdir -p "$CARGO_HOME"/bin "$ZSH_DATA"/completions "$PIPX_BIN_DIR"
 	mkdir -p "$HOME"/scripts "$HOME"/repos "$HOME"/bin
 	mkdir -p "$HOME"/Desktop "$HOME"/Downloads "$HOME"/Documents
 }
@@ -196,8 +196,6 @@ configure_zsh() {
 
 	echo "Moving files to path"
 	doas mv "$tempdir"/sheldon /usr/bin
-	echo "Creating completions"
-	mkdir -p "$ZSH_DATA"/completions
 	mv "$tempdir"/completions/sheldon.zsh "$ZSH_DATA"/completions/_sheldon && echo "Successfully move sheldon completions files"
 	command -v sheldon && echo "Successfully installed sheldon" || echo "Could not install sheldon"
 
