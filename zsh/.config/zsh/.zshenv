@@ -22,8 +22,8 @@ export _ZO_RESOLVE_SYMLINKS=1
 typeset -U path PATH
 
 path+=(
-  $HOME/.cargo/bin(N-/)
-  $GOPATH/bin(N-/)
+  $CARGO_HOME/bin(N-/)
+  $GOROOT/bin(N-/)
   $GOBIN(N-/)
   $HOME/.local/bin(N-/)
   $HOME/scripts(N-/)
@@ -31,9 +31,6 @@ path+=(
   $PYENV_ROOT/bin(N-/)
   $PIPX_BIN_DIR(N-/)
   $ZSH_DATA/completions(N-/)
-  # $PYENV_ROOT/bin(N-/)
-  $HOME/.poetry/bin(N-/)
-  # $path
 )
 
 export PATH
