@@ -4,11 +4,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # Env Variables
-# export PATH="$HOME/.poetry/bin:$PATH"
 source "$ZDOTDIR"/.zshenv
-
-# # Evals
-# export PATH="$PYENV_ROOT/bin:$PATH"
 
 function _init_options {
     setopt interactive_comments # Allow for comments
@@ -56,7 +52,6 @@ function _init_plugin {
 }
 
 function _init_local {
-	#   source $XDG_CONFIG_HOME/zsh/zoxide.zsh
     source $XDG_CONFIG_HOME/zsh/fn.zsh
     eval "$(pyenv init -)"
     eval "$(zoxide init --cmd j --hook pwd zsh)"
