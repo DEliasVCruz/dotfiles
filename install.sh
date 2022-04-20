@@ -148,7 +148,8 @@ install_fonts() {
 	paru -S --noconfirm nerd-fonts-source-code-pro nerd-fonts-inconsolata
 	paru -S --noconfirm nerd-fonts-noto-sans-mono nerd-fonts-terminus
 	paru -S --noconfirm nerd-fonts-victor-mono fontpreview-ueberzug-git
-	paru -S --noconfirm helvetica-now ttf-spectral
+	paru -S --noconfirm helvetica-now ttf-spectral ttf-liberation ttf-croscore
+	paru -S --noconfirm noto-fonts-emoji
 }
 
 install_languages() {
