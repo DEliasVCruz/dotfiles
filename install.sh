@@ -147,6 +147,7 @@ install_fonts() {
 	paru -S --noconfirm nerd-fonts-victor-mono fontpreview-ueberzug-git
 	paru -S --noconfirm helvetica-now ttf-spectral ttf-liberation ttf-croscore
 	paru -S --noconfirm noto-fonts-emoji ttf-twemoji-color otf-openmoji
+	paru -S --noconfirm ttf-segoe-ui-variable
 }
 
 install_languages() {
