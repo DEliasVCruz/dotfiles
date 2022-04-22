@@ -62,6 +62,7 @@ temporal_env() {
 	echo "Continuing with installation as $(whoami)"
 	export HOME="/home/daniel"
 	export XDG_DATA_HOME="$HOME/.local/share"
+	export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 	export CARGO_HOME="$XDG_DATA_HOME/cargo"
 	export PATH="$CARGO_HOME/bin:$PATH"
 	export PATH="$HOME/scripts:$PATH"
