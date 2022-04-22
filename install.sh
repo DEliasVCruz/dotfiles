@@ -95,13 +95,14 @@ clone() {
 create_dir_structure() {
 	mkdir -p "$HOME"/.config "$XDG_DATA_HOME"/{backgrounds,icons}
 	mkdir -p "$CARGO_HOME"/bin "$ZSH_DATA"/completions "$PIPX_BIN_DIR"
-	mkdir -p "$HOME"/{scripts,repos,bin,notes}
+	mkdir -p "$HOME"/{scripts,repos,bin}
 	mkdir -p "$HOME"/{Downloads,Documents}
 }
 
 clone_main_repos() {
+	git clone https://github.com/DEliasVCruz/ZettlekastenNotes.git "$HOME"/notes
 	cd $HOME/repos && echo "Entering repos dir"
-	clone CristalMoon st ZettlekastenNotes
+	clone CristalMoon st
 	prinft "Entering dotfiles direcotry"
 	cd $DOT && stow -v */ && printf "\nFinish stowing all directories successfully\n"
 	back_home_from "dotfiles"
