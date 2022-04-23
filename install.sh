@@ -101,6 +101,7 @@ create_dir_structure() {
 
 clone_main_repos() {
 	git clone https://github.com/DEliasVCruz/ZettlekastenNotes.git "$HOME"/notes
+	mkdir "$HOME"/notes/.zk
 	cd $HOME/repos && echo "Entering repos dir"
 	clone CristalMoon st
 	prinft "Entering dotfiles direcotry"
@@ -242,6 +243,13 @@ install_basic_programs() {
 	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
 	paru -S --noconfirm libqalculate unclutter jq playerctl btop sx
 	paru -S --noconfirm picom-jonaburg-git herbstluftwm exa nsxiv
+
+	echo "Installing and configuring zk"
+	paru -S --noconfirm zk && echo "Successfully installed zk"
+	echo "Entering notes directory"
+	cd "$HOME"/notes && zk index && "Finished indexing all notes"
+	echo "Exiting notes directory"
+	back_home_from "notes"
 
 	install_st
 
