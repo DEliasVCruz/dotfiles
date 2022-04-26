@@ -5,7 +5,7 @@ export LANG=en_US.UTF-8
 # export AR="/mnt/media/Archivos"
 
 export EDITOR='nvim'
-export VISUAL='nvim'
+export VISUAL="$EDITOR"
 export DOT="$HOME/dotfiles"
 export TERMINAL=kitty
 export PAGER='less'
