@@ -17,8 +17,6 @@ export _ZO_ECHO=1
 export _ZO_RESOLVE_SYMLINKS=1
 # export BROWSER=/usr/bin/xdg-open
 
-# export PYENV_ROOT="$HOME/.pyenv"
-
 typeset -U path PATH
 
 path+=(
