@@ -37,8 +37,8 @@ configure_pacman() {
 
 setup() {
 	echo "Installing setup packages"
-	pacman -Syu --noconfirm doas wget dateutils doas git-dinit
-	pacman -S --noconfirm stow openssh openssh-dinit
+	pacman -Syu --noconfirm doas wget dateutils doas
+	pacman -S --noconfirm stow openssh
 	chown -R daniel:daniel /home/daniel/dotfiles
 }
 
