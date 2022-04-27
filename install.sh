@@ -302,6 +302,7 @@ main() {
 	install_cargo
 	install_paru
 	install_x11_deps
+	doas pacman -Syu
 	install_basic_tools
 	install_fonts
 	install_languages
