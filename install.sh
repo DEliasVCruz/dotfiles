@@ -267,6 +267,7 @@ install_basic_programs() {
 	go install github.com/xyproto/wallutils/cmd/xinfo@latest
 	paru -S --noconfirm rm-improved
 	curl -o $HOME/bin/cn https://gitlab.com/arijit79/cn/uploads/991b176a489f90556c3f2b857f3b974f/cn
+	doas chmod +x $HOME/bin/cn
 	echo "Installing terminals"
 	paru -S --noconfirm kitty
 	echo "Installing browser"
