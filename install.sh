@@ -275,12 +275,12 @@ install_basic_programs() {
 	echo "Entering python3.10 for this shell"
 	pyenv shell 3.10.4
 	echo "Installing pipx"
-	python3.10 -m pip install --user pipx
-	python3.10 -m pipx ensurepath
+	python -m pip install --user pipx
+	python -m pipx ensurepath
 
 	echo "installing python applications"
-	python3.10 -m pipx install --python python3.10 ptpython && echo "Successfully installed ptpython"
-	python3.10 -m pipx install --python python3.10 poetry && echo "Successfully installed poetry"
+	python -m pipx install --python python3.10 ptpython && echo "Successfully installed ptpython"
+	python -m pipx install --python python3.10 poetry && echo "Successfully installed poetry"
 	poetry completions zsh >"$ZSH_DATA"/completions/_poetry
 
 	install_neovim
