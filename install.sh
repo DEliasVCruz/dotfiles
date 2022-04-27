@@ -306,7 +306,6 @@ main() {
 	install_basic_tools
 	install_fonts
 	install_languages
-	doas chmod +x "$HOME"/bin/*
 	install_basic_programs
 	install_audio
 	install_drivers
