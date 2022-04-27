@@ -177,7 +177,7 @@ install_languages() {
 	echo "Installig more latest python versions"
 	pyenv install 3.8.13
 	pyenv install 3.9.12
-	pyenv install 3.11.0a6
+	pyenv install 3.11-dev
 	echo "Making python 3.8.13 the global version"
 	pyenv global 3.8.13
 	command -v python && echo "Successfully installed python"
