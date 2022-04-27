@@ -272,6 +272,8 @@ install_basic_programs() {
 	echo "Installing browser"
 	paru -S --noconfirm firefox
 
+	echo "Entering python3.10 for this shell"
+	pyenv shell 3.10.4
 	echo "Installing pipx"
 	python3.10 -m pip install --user pipx
 	python3.10 -m pipx ensurepath
