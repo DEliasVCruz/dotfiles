@@ -6,7 +6,8 @@ export LC_COLLATE="C"
 # XDG standard directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_LOCAL_HOME="$HOME/.local"
+export XDG_DATA_HOME="$XDG_LOCAL_HOME/share"
 
 # Language bin folders
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"

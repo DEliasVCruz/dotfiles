@@ -23,7 +23,7 @@ path+=(
   $CARGO_HOME/bin(N-/)
   $GOROOT/bin(N-/)
   $GOBIN(N-/)
-  $HOME/.local/bin(N-/)
+  $XDG_LOCAL_HOME/bin(N-/)
   $HOME/scripts(N-/)
   $HOME/bin(N-/)
   $PYENV_ROOT/bin(N-/)
