@@ -203,7 +203,7 @@ configure_zsh() {
 	mv "$tempdir"/completions/sheldon.zsh "$ZSH_DATA"/completions/_sheldon && echo "Successfully move sheldon completions files"
 	command -v sheldon && echo "Successfully installed sheldon" || echo "Could not install sheldon"
 
-	paru -S --noconfirm starship
+	cargo install starship --locked
 	doas chsh -s /bin/zsh daniel
 }
 
