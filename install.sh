@@ -146,9 +146,10 @@ install_fonts() {
 	echo "Installing fontconfig"
 	paru -S --noconfirm fontconfig
 	echo "Installing fonts"
-	paru -S --noconfirm nerd-fonts-source-code-pro nerd-fonts-inconsolata
+	paru -S --noconfirm ttf-nerd-fonts-symbols
+	paru -S --noconfirm adobe-source-code-pro-fonts ttf-inconsolata
 	paru -S --noconfirm nerd-fonts-noto-sans-mono nerd-fonts-terminus
-	paru -S --noconfirm nerd-fonts-victor-mono fontpreview-ueberzug-git
+	paru -S --noconfirm font-victor-mono fontpreview-ueberzug-git
 	paru -S --noconfirm helvetica-now ttf-spectral ttf-liberation ttf-croscore
 	paru -S --noconfirm noto-fonts-emoji ttf-twemoji-color otf-openmoji
 	paru -S --noconfirm ttf-segoe-ui-variable
