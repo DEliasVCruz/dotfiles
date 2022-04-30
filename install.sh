@@ -223,6 +223,7 @@ install_st() {
 	cd "$HOME"/repos/st/ && echo "Enterig st dir"
 	git checkout staging
 	doas make clean install && echo "Successfully installed st"
+	paru -S --noconfirm --removemake libxft-bgra
 	back_home_from "st"
 }
 
