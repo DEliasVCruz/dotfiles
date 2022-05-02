@@ -1,3 +1,6 @@
 [submodule "neovim/.config/nvim"]
 	path = neovim/.config/nvim
 	url = https://github.com/DEliasVCruz/CristalMoon.git
+[submodule "cursors/.local/share/icons"]
+	path = cursors/.local/share/icons
+	url = https://github.com/DEliasVCruz/cursors.git
