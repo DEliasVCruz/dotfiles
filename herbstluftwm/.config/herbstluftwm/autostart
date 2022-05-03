@@ -20,7 +20,7 @@ Mod=Mod4 # Hopefully is the AltGr key
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-w close
-hc keybind $Mod-Control-t spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Control-t spawn "${TERMINAL:-kitty}" # use your $TERMINAL with xterm as fallback
 
 # basic movement in tiling and floating mode
 # focusing clients
