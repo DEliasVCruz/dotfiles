@@ -80,6 +80,8 @@ temporal_env() {
 	export GOROOT="/usr/local/go"
 	export PATH="$GOBIN:$GOROOT/bin:$PATH"
 	export PATH="$HOME/.local/bin:$PATH"
+	export FNM_DIR="$XDG_DATA_HOME/fnm"
+	export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 	export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 }
 
@@ -166,6 +168,16 @@ install_languages() {
 	doas mv go /usr/local
 	rm -rf go1.18.linux-amd64.tar.gz
 	go version && echo "Installed go" || echo "No go install"
+
+	printf "\nInstalling node\n"
+	cargo install fnm
+	echo "Creating shell completions"
+	fnm completions --shell=zsh >"$ZSH_DATA"/completions/_fnm
+	eval "$(fnm env --use-on-cd)"
+	fnm install --lts
+	printf "\nInstalling Yarn\n"
+	corepack enable
+	printf "\nSuccesfully installed fnm and node"
 
 	printf "\nInstalling python\n"
 	git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT

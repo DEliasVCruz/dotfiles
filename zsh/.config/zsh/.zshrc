@@ -53,6 +53,7 @@ function _init_plugin {
 function _init_local {
     source $XDG_CONFIG_HOME/zsh/fn.zsh
     eval "$(pyenv init -)"
+    eval "$(fnm env --use-on-cd)"
     eval "$(zoxide init --cmd j --hook pwd zsh)"
 }
 

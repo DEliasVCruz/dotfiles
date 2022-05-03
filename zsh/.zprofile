@@ -22,6 +22,8 @@ export GOBIN="$GOPATH/bin"
 export PIPX_HOME="$XDG_DATA_HOME/pipx"
 export PIPX_BIN_DIR="$PIPX_HOME/bin"
 export ZSH_DATA="$XDG_DATA_HOME/zsh"
+export FNM_DIR="$XDG_DATA_HOME/fnm"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 # export PATH="$PATH:$XDG_DATA_HOME/yarn/bin"
 
 # General user directories
