@@ -11,6 +11,7 @@ export MANPAGER="sh -c 'col -bx | bat --theme=Monokai\ Extended -l man -p'" # Us
 export FZF_DEFAULT_OPTS="--layout=reverse --info=inline -i"
 export _ZO_ECHO=1
 export _ZO_RESOLVE_SYMLINKS=1
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 # export BROWSER=/usr/bin/xdg-open
 
 typeset -U path PATH

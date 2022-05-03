@@ -80,6 +80,7 @@ temporal_env() {
 	export GOROOT="/usr/local/go"
 	export PATH="$GOBIN:$GOROOT/bin:$PATH"
 	export PATH="$HOME/.local/bin:$PATH"
+	export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 }
 
 back_home_from() {
