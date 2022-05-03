@@ -8,6 +8,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_LOCAL_HOME="$HOME/.local"
 export XDG_DATA_HOME="$XDG_LOCAL_HOME/share"
+export XDG_DOWNLOAD_DIR="$HOME/Downloads"
+export XDG_DOCUMENTS_DIR="$HOME/Documents"
 
 # Global variables
 export TERMINAL="/usr/bin/kitty"
