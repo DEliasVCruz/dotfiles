@@ -21,8 +21,8 @@ base_system() {
 	echo "devc" >/etc/hostname
 	printf "127.0.0.1\tlocalhost\n::1\t\tlocalhost" >/etc/hosts
 	printf "\n127.0.1.1\tdevc.localdomain devc\n" >>/etc/hosts
-	pacman -S --noconfirm connman-dinit
-	ln -s ../connmand /etc/dinit.d/boot.d/
+	pacman -S --noconfirm networkmanager networkmanager-runit
+	ln -s /etc/runit/sv/NetworkManager /etc/runit/runsvdir/default
 }
 
 configure_pacman() {
