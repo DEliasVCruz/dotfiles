@@ -257,6 +257,15 @@ install_st() {
 	back_home_from "st"
 }
 
+install_rover() {
+	echo "Cloning rover repo"
+	git clone https://github.com/lecram/rover.git "$HOME"/repos/rover
+	echo "Entering rover directory"
+	cd "$HOME"/repos/rover || return
+	doas make install && echo "Successfully installed rover"
+	back_home_from rover
+}
+
 install_neovim() {
 	echo "Begining neovim installation"
 	echo "Installing neovim build dependencies"
@@ -284,6 +293,7 @@ install_basic_programs() {
 	back_home_from "notes"
 
 	install_st
+	install_rover
 
 	if [ -e /etc/xdg/herbstluftwm/autostart ]; then
 		echo "Installing herbstluftwm files"
