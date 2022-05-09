@@ -110,7 +110,7 @@ clone_main_repos() {
 	mkdir "$HOME"/notes/.zk
 	cd $HOME/repos && echo "Entering repos dir"
 	clone CristalMoon st
-	prinft "Entering dotfiles direcotry"
+	printf "Entering dotfiles directory"
 	cd $DOT && stow -v */ && printf "\nFinish stowing all directories successfully\n"
 	back_home_from "dotfiles"
 }
