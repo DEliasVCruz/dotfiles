@@ -84,6 +84,9 @@ function _init_alias {
     alias R="R --quiet" # Run R without the intro
     alias r="radian"    # The better R interactive shell
 
+    # Media playing
+    alias audio="pulsemixer"
+
     # Editor
     alias e="$EDITOR"
 

@@ -314,6 +314,7 @@ install_basic_programs() {
 	echo "installing python applications"
 	python -m pipx install --python python3.10 ptpython && echo "Successfully installed ptpython"
 	python -m pipx install --python python3.10 poetry && echo "Successfully installed poetry"
+	python -m pipx install --python python3.10 pulsemixer && echo "Successfully installed pulsemixer"
 	poetry completions zsh >"$ZSH_DATA"/completions/_poetry
 
 	install_neovim
