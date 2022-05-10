@@ -344,9 +344,12 @@ Install and
   - Already **installed**
   - The [repo](https://github.com/westandskif/rate-mirrors)
 - `pacman-contrib`: Usefull tools for working with a pacman db
-  - Already **installed**
-  - Like `paccache`
+  - Contains `paccache`
   - The [repo](https://gitlab.archlinux.org/pacman/pacman-contrib)
+- `xidlehook`: An automatic screen locker when your computer is idle
+  - Very customizable
+  - Written in rust
+  - The [repo](https://gitlab.com/jD91mZM2/xidlehook)
 
 ## Misc programs
 
