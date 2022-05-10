@@ -175,8 +175,9 @@ To configure doas just installed it and then edit the `/etc/doas.conf` file
   sudo chown -c 0400 /etc/doas.conf
 ```
 
-- You can then use this to emulate the `sudoedit` command as `daosedit`
-  - [script](https://github.com/AN3223/scripts/blob/master/doasedit)
+- You can then use this
+  [script](https://github.com/AN3223/scripts/blob/master/doasedit) to emulate
+  the `sudoedit` command as `daosedit`
 
 ### Install and configure paru
 
