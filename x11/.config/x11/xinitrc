@@ -16,7 +16,6 @@ unclutter &
 xwallpaper --center "$XDG_DATA_HOME"/backgrounds/2021-08-11-13-17-47-fallen_angel_face.jpg &
 # picom --config ~/.config/picom/picom.conf --experimental-backend -b &
 # dunst &
-# picom &
 
 # Setup audio
 /usr/bin/pipewire &
