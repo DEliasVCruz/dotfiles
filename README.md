@@ -358,6 +358,7 @@ You can install some of this programs for fun
 - `cowsay-bin`: A program that displays a cow
 - `c-lolcat`: A program that can colorized the otuput of your terminal
 - A [guide](https://www.in-ulm.de/~mascheck/X11/xmodmap.html) on keyboard setup
+- `vidir`: Edit file and directory names in your text editor and save changes
 
 ## Posible themes
 
