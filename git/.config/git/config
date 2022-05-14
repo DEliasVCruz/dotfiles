@@ -13,6 +13,8 @@
     co = checkout
     cob = checkout -b
     uns = reset HEAD --
+    la = log --all --oneline
+    lc = log --oneline
 [core]
 	editor = nvim
 [init]
