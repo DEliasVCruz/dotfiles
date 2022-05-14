@@ -135,20 +135,6 @@ install_paru() {
 	rm -rf "$HOME"/.config/yay
 }
 
-update_mirrors() {
-	paru -S --noconfirm rate-mirrors-bin
-	local tmpfile_arch
-	local tmpfile_artix
-	tmpfile_arch="$(mktemp)"
-	rate-mirrors --save="$tmpfile_arch" arch --max-delay=21600
-	rate-mirrors --save="$tmpfile_artix" artix
-	doas mv /etc/pacman.d/mirrorlist-arch /etc/pacman.d/mirrorlist-arch.bak
-	doas mv /etc/pacman.d/mirrorlist-artix /etc/pacman.d/mirrorlist-artix.bak
-	doas mv "$tmpfile_arch" /etc/pacman.d/mirrorlist-arch
-	doas mv "$tmpfile_artix" /etc/pacman.d/mirrorlist-artix
-	paru -Syyu --noconfirm
-}
-
 install_x11_deps() {
 	echo "Installing x11 packages"
 	paru -S --noconfirm xorg-server xorg-xinit xorg-xrandr xorg-xset
@@ -350,7 +336,7 @@ main() {
 	install_cargo
 	install_paru
 	install_x11_deps
-	update_mirrors
+	doas pacman -Syu
 	install_basic_tools
 	install_fonts
 	install_languages
