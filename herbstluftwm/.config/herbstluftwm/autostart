@@ -120,8 +120,8 @@ hc set smart_frame_surroundings 0
 hc set mouse_recenter_gap 0
 
 # Frames
-hc set frame_gap 10
 hc attr theme.border_width 10
+hc set frame_gap 0
 
 # rules
 hc unrule -F
