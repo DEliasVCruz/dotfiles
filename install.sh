@@ -277,7 +277,7 @@ install_basic_programs() {
 	paru -S --noconfirm zathura zathura-djvu zathura-pdf-mupdf zathura-ps
 	paru -S --noconfirm libqalculate unclutter jq playerctl btop sx
 	paru -S --noconfirm picom-jonaburg-git herbstluftwm exa nsxiv
-	paru -S --noconfirm xidlehook betterlockscreen rsm
+	paru -S --noconfirm xidlehook betterlockscreen rsm mpv
 
 	# Basic configs
 	betterlockscreen -u "$HOME"/.local/share/backgrounds/2021-08-11-13-17-47-fallen_angel_face.jpg
