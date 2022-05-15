@@ -345,11 +345,11 @@ main() {
 	install_x11_deps
 	doas pacman -Syu
 	install_basic_tools
+	install_audio
+	install_drivers
 	install_fonts
 	install_languages
 	install_basic_programs
-	install_audio
-	install_drivers
 	configure_zsh
 }
 
