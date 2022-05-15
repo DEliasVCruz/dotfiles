@@ -266,6 +266,9 @@ install_neovim() {
 
 	echo "Installing packer"
 	paru -S --noconfirm nvim-packer-git
+
+	echo "Installing lua formatters and linters"
+	paru -S --noconfirm luacheck stylua
 }
 
 install_basic_programs() {
