@@ -107,7 +107,7 @@ create_dir_structure() {
 
 clone_main_repos() {
 	git clone https://github.com/DEliasVCruz/ZettlekastenNotes.git "$HOME"/notes
-	mkdir "$HOME"/notes/.zk
+	mkdir -p "$HOME"/notes/.zk
 	cd $HOME/repos && echo "Entering repos dir"
 	clone CristalMoon st
 	printf "Entering dotfiles directory"
