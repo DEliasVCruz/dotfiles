@@ -263,6 +263,9 @@ install_neovim() {
 	make CMAKE_BUILD_TYPE=Release && echo "Successfully build neovim"
 	echo "Installing stable neovim"
 	paru -S --noconfirm neovim
+
+	echo "Installing packer"
+	paru -S --noconfirm nvim-packer-git
 }
 
 install_basic_programs() {
