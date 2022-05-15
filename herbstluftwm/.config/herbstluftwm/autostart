@@ -73,6 +73,11 @@ hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized
 
+hc keybind $Mod-space \
+	or , and . compare tags.focus.curframe_wcount = 2 \
+	. cycle_layout +1 vertical horizontal max vertical grid \
+	, cycle_layout +1
+
 # focus
 hc keybind $Mod-n cycle_all +1
 hc keybind $Mod-p cycle_all -1
