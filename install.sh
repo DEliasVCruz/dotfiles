@@ -269,6 +269,7 @@ install_neovim() {
 
 	echo "Installing lua formatters and linters"
 	paru -S --noconfirm luacheck stylua
+	paru -S --noconfirm shellcheck shfmt
 }
 
 install_basic_programs() {
