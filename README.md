@@ -351,6 +351,13 @@ Install and
   - Very customizable
   - Written in rust
   - The [repo](https://gitlab.com/jD91mZM2/xidlehook)
+- `rsm`: The runit service manager
+  - Manage your runit services with ease
+  - Already **installed**
+  - The [runit cheat sheet](https://stephane-cheatsheets.readthedocs.io/en/latest/init-systems/runit)
+  - A [guide](https://docs.voidlinux.org/config/services/index.html) to runit
+  - Some missing [runit services](https://github.com/madand/runit-services)
+  - The [repo](https://gitea.artixlinux.org/linuxer/Runit-Service-Manager/src/branch/master)
 
 ## Misc programs
 
@@ -360,6 +367,8 @@ You can install some of this programs for fun
 - `c-lolcat`: A program that can colorized the otuput of your terminal
 - A [guide](https://www.in-ulm.de/~mascheck/X11/xmodmap.html) on keyboard setup
 - `vidir`: Edit file and directory names in your text editor and save changes
+- `nincat`: A nice program that displays colored ascii art in your terminal
+  - The [repo](https://github.com/ninecath/nincat)
 
 ## Posible themes
 
