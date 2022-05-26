@@ -222,6 +222,9 @@ configure_zsh() {
 
 	cargo install starship --locked
 	doas chsh -s /bin/zsh daniel
+
+	echo "Removing bash files"
+	rm .bash*
 }
 
 install_drivers() {
