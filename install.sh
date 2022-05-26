@@ -101,7 +101,7 @@ clone() {
 create_dir_structure() {
 	mkdir -p "$HOME"/.config "$XDG_DATA_HOME"/{backgrounds,icons}
 	mkdir -p "$CARGO_HOME"/bin "$ZSH_DATA"/completions "$PIPX_BIN_DIR"
-	mkdir -p "$HOME"/{scripts,repos,bin}
+	mkdir -p "$HOME"/{scripts,repos,bin} "$HOME"/.icons/default
 	mkdir -p "$HOME"/{Downloads,Documents}
 }
 
