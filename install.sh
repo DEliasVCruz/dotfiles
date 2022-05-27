@@ -39,19 +39,9 @@ configure_pacman() {
 
 setup() {
 	echo "Installing setup packages"
-	pacman -Syu --noconfirm doas wget dateutils
+	pacman -Syu --noconfirm wget dateutils
 	pacman -S --noconfirm stow openssh
 	chown -R daniel:daniel /home/daniel/dotfiles
-}
-
-configure_doas() {
-	echo "Installing doas"
-	printf "permit :wheel\npermit persist :wheel\n" >/etc/doas.conf
-	printf "permit setenv { XAUTHORITY LANG LC_ALL } :wheel\n\n" >>/etc/doas.conf
-	chown -c root:root /etc/doas.conf
-	chmod -c 0400 /etc/doas.conf
-	pacman -Rns --noconfirm sudo && printf "\nSudo has been removed\n"
-	ln -s "$(which doas)" /usr/bin/sudo
 }
 
 mid_install_message() {
@@ -336,7 +326,6 @@ main() {
 		base_system
 		configure_pacman
 		setup
-		configure_doas
 		mid_install_message
 		return 0
 	fi
