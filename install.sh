@@ -39,7 +39,7 @@ configure_pacman() {
 
 setup() {
 	echo "Installing setup packages"
-	pacman -Syu --noconfirm doas wget dateutils doas
+	pacman -Syu --noconfirm doas wget dateutils
 	pacman -S --noconfirm stow openssh
 	chown -R daniel:daniel /home/daniel/dotfiles
 }
