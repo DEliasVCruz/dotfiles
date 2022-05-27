@@ -44,6 +44,11 @@ setup() {
 	chown -R daniel:daniel /home/daniel/dotfiles
 }
 
+configure_sudo() {
+	sed -i -r "s/^# (Defaults targetpw)/\1/g" /etc/sudoers
+	sed -i -r "s/^# (ALL ALL)/\1/g" /etc/sudoers
+}
+
 mid_install_message() {
 	printf "Please reboot your machine\n"
 	printf "Then re-log on your user account\n"
@@ -326,6 +331,7 @@ main() {
 		base_system
 		configure_pacman
 		setup
+		configure_sudo
 		mid_install_message
 		return 0
 	fi
