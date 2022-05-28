@@ -112,21 +112,21 @@ clone_main_repos() {
 
 install_cargo() {
 	printf "\nInstalling rustup\n"
-	doas pacman -S --noconfirm rustup
+	sudo pacman -S --noconfirm rustup
 	rustup install stable
 	rustup default stable && echo "Installed stable rust"
 }
 
 install_paru() {
 	echo "Installing paru AUR helper"
-	doas pacman -S --noconfirm yay
+	sudo pacman -S --noconfirm yay
 	yay -S --noconfirm paru-bin
 
 	if [[ $(command -v paru) ]]; then
 		echo "paru was successfully installed"
 	fi
 
-	doas pacman -Rns --noconfirm yay
+	sudo pacman -Rns --noconfirm yay
 	rm -rf "$HOME"/.config/yay
 }
 
@@ -162,7 +162,7 @@ install_languages() {
 	echo "Extracting files"
 	tar -xvf go1.18.linux-amd64.tar.gz && echo "Successfully extracted"
 	echo "Moving go folder"
-	doas mv go /usr/local
+	sudo mv go /usr/local
 	rm -rf go1.18.linux-amd64.tar.gz
 	go version && echo "Installed go" || echo "No go install"
 
@@ -211,12 +211,12 @@ configure_zsh() {
 	tar -xvf "$tempdir"/sheldon-0.6.6-x86_64-unknown-linux-musl.tar.gz -C "$tempdir" && echo "Successfully untar sheldon files"
 
 	echo "Moving files to path"
-	doas mv "$tempdir"/sheldon /usr/bin
+	sudo mv "$tempdir"/sheldon /usr/bin
 	mv "$tempdir"/completions/sheldon.zsh "$ZSH_DATA"/completions/_sheldon && echo "Successfully move sheldon completions files"
 	command -v sheldon && echo "Successfully installed sheldon" || echo "Could not install sheldon"
 
 	cargo install starship --locked
-	doas chsh -s /bin/zsh daniel
+	sudo chsh -s /bin/zsh daniel
 
 	echo "Removing bash files"
 	rm .bash*
@@ -236,7 +236,7 @@ install_st() {
 	echo "Installing st"
 	cd "$HOME"/repos/st/ && echo "Enterig st dir"
 	git checkout staging
-	doas make clean install && echo "Successfully installed st"
+	sudo make clean install && echo "Successfully installed st"
 	paru -S --noconfirm --removemake libxft-bgra
 	back_home_from "st"
 }
@@ -246,7 +246,7 @@ install_rover() {
 	git clone https://github.com/lecram/rover.git "$HOME"/repos/rover
 	echo "Entering rover directory"
 	cd "$HOME"/repos/rover || return
-	doas make install && echo "Successfully installed rover"
+	sudo make install && echo "Successfully installed rover"
 	back_home_from rover
 }
 
@@ -304,7 +304,7 @@ install_basic_programs() {
 	go install github.com/xyproto/wallutils/cmd/xinfo@latest
 	paru -S --noconfirm rm-improved
 	curl -o $HOME/bin/cn https://gitlab.com/arijit79/cn/uploads/991b176a489f90556c3f2b857f3b974f/cn
-	doas chmod +x $HOME/bin/cn
+	sudo chmod +x $HOME/bin/cn
 	echo "Installing terminals"
 	paru -S --noconfirm kitty
 	echo "Installing browser"
@@ -341,7 +341,7 @@ main() {
 	install_cargo
 	install_paru
 	install_x11_deps
-	doas pacman -Syu
+	sudo pacman -Syu
 	install_basic_tools
 	install_audio
 	install_drivers
