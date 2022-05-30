@@ -86,13 +86,6 @@ back_home_from() {
 	cd "$HOME" && echo "Exiting $1 dir"
 }
 
-clone() {
-	for repo in "$@"; do
-		git clone https://github.com/DEliasVCruz/"$repo".git
-		echo "Cloning $repo repository"
-	done
-}
-
 create_dir_structure() {
 	mkdir -p "$HOME"/.config "$XDG_DATA_HOME"/{backgrounds,icons}
 	mkdir -p "$CARGO_HOME"/bin "$ZSH_DATA"/completions "$PIPX_BIN_DIR"
@@ -103,8 +96,6 @@ create_dir_structure() {
 clone_main_repos() {
 	git clone https://github.com/DEliasVCruz/ZettlekastenNotes.git "$HOME"/notes
 	mkdir -p "$HOME"/notes/.zk
-	cd $HOME/repos && echo "Entering repos dir"
-	clone CristalMoon st
 	printf "Entering dotfiles directory"
 	cd $DOT && stow -v */ && printf "\nFinish stowing all directories successfully\n"
 	back_home_from "dotfiles"
@@ -234,6 +225,7 @@ install_audio() {
 
 install_st() {
 	echo "Installing st"
+	git clone https://github.com/DEliasVCruz/st.git "$HOME"/st
 	cd "$HOME"/repos/st/ && echo "Enterig st dir"
 	git checkout staging
 	sudo make clean install && echo "Successfully installed st"
