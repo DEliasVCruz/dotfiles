@@ -341,6 +341,8 @@ main() {
 	install_languages
 	install_basic_programs
 	configure_zsh
+	printf "\nYour system installation has been finished\n"
+	printf "Please reboot to enter your new system\n"
 }
 
 main
