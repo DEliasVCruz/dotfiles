@@ -167,7 +167,7 @@ install_languages() {
 	go version && echo "Installed go" || echo "No go install"
 
 	printf "\nInstalling node\n"
-	cargo install fnm
+	paru -S --noconfirm fnm
 	echo "Creating shell completions"
 	fnm completions --shell=zsh >"$ZSH_DATA"/completions/_fnm
 	eval "$(fnm env --use-on-cd)"
@@ -215,7 +215,7 @@ configure_zsh() {
 	mv "$tempdir"/completions/sheldon.zsh "$ZSH_DATA"/completions/_sheldon && echo "Successfully move sheldon completions files"
 	command -v sheldon && echo "Successfully installed sheldon" || echo "Could not install sheldon"
 
-	cargo install starship --locked
+	paru -S --noconfirm starship
 	sudo chsh -s /bin/zsh daniel
 
 	echo "Removing bash files"
