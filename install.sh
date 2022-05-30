@@ -210,7 +210,7 @@ configure_zsh() {
 	sudo chsh -s /bin/zsh daniel
 
 	echo "Removing bash files"
-	rm .bash*
+	rm "$HOME"/.bash*
 }
 
 install_drivers() {
