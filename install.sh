@@ -12,9 +12,9 @@ base_system() {
 	printf '\nLC_COLLATE="C"\n' >>/etc/locale.conf
 
 	echo "Configuring bootloader"
-	pacman -S --noconfirm grub      #efibootmgr
-	grub-install --recheck /dev/sda #BIOS
-	# grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub #UEFI
+	pacman -S --noconfirm grub #efibootmgr
+	# grub-install --recheck /dev/sda #BIOS
+	grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub #UEFI
 	grub-mkconfig -o /boot/grub/grub.cfg
 
 	echo "Configuring the network"
