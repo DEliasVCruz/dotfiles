@@ -21,8 +21,8 @@ base_system() {
 	echo "devc" >/etc/hostname
 	printf "127.0.0.1\tlocalhost\n::1\t\tlocalhost" >/etc/hosts
 	printf "\n127.0.1.1\tdevc.localdomain devc\n" >>/etc/hosts
-	pacman -S --noconfirm networkmanager networkmanager-runit
-	pacman -S --noconfirm iwd iwd-runit
+	pacman -S --noconfirm connman connman-runit
+	pacman -S --noconfirm wpa_supplicant
 	ln -s /etc/runit/sv/NetworkManager /etc/runit/runsvdir/default
 	printf "[device]\nwifi.backend=iwd\n" >/etc/NetworkManager/conf.d/wifi_backend.conf
 }
