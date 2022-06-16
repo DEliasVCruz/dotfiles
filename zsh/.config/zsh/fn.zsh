@@ -18,3 +18,7 @@ function fzg() {
 	local file_name=$(echo "$result" | cut -d':' -f1)
 	nvim +"$line_num" "$file_name"
 }
+
+function clipcopy() {
+    clip.exe < "${1:-/dev/stdin}"
+}
