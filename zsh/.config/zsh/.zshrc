@@ -59,7 +59,6 @@ function _init_local {
 
 function _init_alias {
     # Sane defaults
-    alias cp="cp -i"        # confirm before overwriting something
     alias mv="mv -i"        # confirm before overwriting something
     alias mkdir='mkdir -pv' # Make parent directories and give visual feedback
     alias df='df -h'        # human-readable sizes
