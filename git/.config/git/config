@@ -8,6 +8,7 @@
     bl = branch -l
     bd = branch -d
     cm = commit
+    cmm = commit -m
     cma = commit --amend
     cmane = commit --amend --no-edit
     co = checkout
