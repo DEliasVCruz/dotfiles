@@ -8,8 +8,8 @@
     bl = branch -l
     bd = branch -d
     cm = commit
-    cma = commit --ammend
-    cmane = commit --ammend --no-edit
+    cma = commit --amend
+    cmane = commit --amend --no-edit
     co = checkout
     cob = checkout -b
     uns = reset HEAD --
