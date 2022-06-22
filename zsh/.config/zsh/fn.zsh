@@ -2,7 +2,7 @@
 
 function p() {
 	case "$1" in
-	*.md) glow -p "$1" ;;
+	*.md) glow "$1" ;;
 	*.json) fx "$1" ;;
 	*) bat "$1" ;;
 	esac
