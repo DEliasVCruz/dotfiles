@@ -20,5 +20,5 @@ function fzg() {
 }
 
 function clipcopy() {
-    clip.exe < "${1:-/dev/stdin}"
+	clip.exe <"${1:-/dev/stdin}"
 }
