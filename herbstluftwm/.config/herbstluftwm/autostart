@@ -20,7 +20,8 @@ Mod=Mod4 # Hopefully is the AltGr key
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-w close
-hc keybind $Mod-Control-t spawn "${TERMINAL:-kitty}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Control-t spawn st # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-Control-f spawn firefox
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -34,6 +35,8 @@ hc keybind $Mod-Shift-h shift left
 hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
+hc keybind $Mod-Shift-comma move_index -1
+hc keybind $Mod-Shift-period move_index +1
 
 # splitting frames
 # create an empty frame at the specified direction
@@ -84,15 +87,17 @@ hc keybind $Mod-space \
 
 # focus
 hc keybind $Mod-BackSpace cycle_monitor
-hc keybind $Mod-Tab cycle_all +1
+hc keybind $Mod-Tab cycle
 hc keybind $Mod-Shift-Tab cycle_all -1
-hc keybind $Mod-c cycle
+hc keybind $Mod-c cycle_all +1
 
 # theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#222222cc'
 hc set frame_border_normal_color '#101010cc'
+hc set frame_active_opacity 30
+hc set frame_normal_opacity 0
 # hc set frame_bg_normal_color '#565656aa'
 # hc set frame_bg_active_color '#345F0Caa'
 hc set frame_border_width 1
