@@ -14,7 +14,7 @@ xset r rate 200 40 &
 # Start some nice programs
 unclutter &
 xwallpaper --center "$XDG_DATA_HOME"/backgrounds/2021-08-11-13-17-47-fallen_angel_face.jpg &
-xidlehook --not-when-audio --not-when-fullscreen --detect-sleep --timer 1800 '/usr/bin/betterlockscreen' '' &
+xidlehook --not-when-audio --not-when-fullscreen --detect-sleep --timer 1800 '/usr/bin/betterlockscreen -l blur' '' &
 picom --config ~/.config/picom/picom.conf --experimental-backend -b &
 # dunst &
 
