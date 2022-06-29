@@ -66,6 +66,7 @@ function _init_alias {
 
     # Direcotry navigation
     alias l="exa -a --icons --group-directories-first"
+    alias ll="exa -a --icons --group-directories-first -l"
     alias pi="nsxiv -a"              # Display image
     alias d="exa -a --icons -D"     # Display only directories
     alias ff="find . -type f -name" # Find file by name in cwd
