@@ -1,3 +1,4 @@
+-- nvim --cmd 'so startuptime.lua' --startuptime startup.log
 local ffi = require("ffi")
 local C = ffi.C
 
