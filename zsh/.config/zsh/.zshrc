@@ -117,3 +117,7 @@ function _main() {
 }
 
 _main
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/danielv/.local/share/sdkman"
+[[ -s "/home/danielv/.local/share/sdkman/bin/sdkman-init.sh" ]] && source "/home/danielv/.local/share/sdkman/bin/sdkman-init.sh"

@@ -26,6 +26,7 @@ path+=(
   $PYENV_ROOT/bin(N-/)
   $PIPX_BIN_DIR(N-/)
   $ZSH_DATA/completions(N-/)
+  $COURSIER_BIN_DIR(N-/)
 )
 
 export PATH
