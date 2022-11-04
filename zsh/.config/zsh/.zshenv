@@ -29,4 +29,3 @@ path+=(
 )
 
 export PATH
-. "/home/daniel/.local/share/cargo/env"
