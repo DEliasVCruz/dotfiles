@@ -149,12 +149,12 @@ install_fonts() {
 install_languages() {
 	printf "\nInstalling go\n"
 	cd /tmp && echo "Entering tmp dir"
-	wget https://go.dev/dl/go1.18.linux-amd64.tar.gz
+	wget https://go.dev/dl/go1.24.0.linux-amd64.tar.gz
 	echo "Extracting files"
-	tar -xvf go1.18.linux-amd64.tar.gz && echo "Successfully extracted"
+	tar -xvf go1.24.0.linux-amd64.tar.gz && echo "Successfully extracted"
 	echo "Moving go folder"
 	sudo mv go /usr/local
-	rm -rf go1.18.linux-amd64.tar.gz
+	rm -rf go1.24.0.linux-amd64.tar.gz
 	go version && echo "Installed go" || echo "No go install"
 
 	printf "\nInstalling node\n"
