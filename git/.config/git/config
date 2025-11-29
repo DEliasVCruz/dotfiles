@@ -1,24 +1,138 @@
 [user]
-	name = DEliasVilelaC
-	email = danielvilelayo@gmail.com
+    name = Daniel Vilela
+    email = danielvilelayo@gmail.com
 [alias]
-    s = status -s
+    s = status -sb # short status with branch info
+
+    # Fetching
+    f = fetch
+    fm = fetch origin main
+    fmm = !git fm && git mom
+    fa = fetch --all
+    fo = fetch origin
+
+    # Rebasing
+    rb = rebase
+    rbi = rebase -i
+    rbo = rebase --onto
+
+    # Merging
+    m = merge
+    mom = merge origin/main
+
+    # Working with the index (staging)
     a = add
+    ap = add --dry-run
     aa = add .
-    bl = branch -l
-    bd = branch -d
+    aap = add --dry-run .
+    ah = add -p # Add going through patches (hunks)
+
+    # Unstage
+    us = restore --staged # unstage
+    usa = restore --staged . # unstage all staged files
+
+    # Discard changes (unmodify)
+    um = restore # This is the same as (checkout -- <file>)
+    uma = restore . # This is the same as (checkout -- .)
+
+    # Diffs
+    d = diff --output-indicator-new=' ' --output-indicator-old=' ' # Show the diff with the newest changes
+    dp = diff --output-indicator-new=' ' --output-indicator-old=' ' HEAD~ # Show the diff with the previous commit
+    dm = diff --output-indicator-new=' ' --output-indicator-old=' ' main # Show the diff with master
+    ds = diff --output-indicator-new=' ' --output-indicator-old=' ' --cached # show the diff of the staged changes
+    dw = diff --output-indicator-new=' ' --output-indicator-old=' ' --word-diff # Show with more granularity the cahnges, not just lines
+    dws = diff --output-indicator-new=' ' --output-indicator-old=' ' --cached --word-diff # show the diff of the staged changes, with word granularity
+
+    ; d = reset --quiet HEAD # What does this even do?
+    # Working with branches
+    b = branch
+    bl = !git_list_branches
+    blr = branch -rl # list only remote branches
+    bd = branch -d # delete a branch
+    bdd = branch -D # really really delete a branch
+    bc = checkout -b # create a new branch
+    by = !git_copy_current_branch # Copy the current branch to the system clipboard
+
+    # Commiting
     cm = commit
     cmm = commit -m
     cma = commit --amend
     cmane = commit --amend --no-edit
+    uc = reset --soft HEAD^ # uncommit, this keep the changes stashed
+
+    # Showing commits
+    sh = show
+    shl = show HEAD~ # show head last
+    cl = clone
+
+    # Checking out
     co = checkout
-    cob = checkout -b
-    uns = reset HEAD --
-    la = log --all --oneline
-    lc = log --oneline
+    cb = switch - # same as 'git checkout -'
+    cp = cherry-pick # select one commit
+
+    # Logging
+    l = log
+    lla = log --all --oneline
+    ll = log --oneline
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --no-merges
+    po = !git_push_origin # push current branch to origin
+    pof = !git_push_origin --force # force push the branch to origin
+
+    ; This ones need better naming
+    # Working with stashes
+    st = stash push
+    sta = stash push --all --include-untracked
+    sth = stash push --patch
+    stg = stash pop
+    stgl = stash pop stash@{@}
+
+    # Working with the reflog
+    rld = reflog --date=iso # Show the reflog with the dates of the changes
+    rlp = reflog --date=iso --pretty # Show more information in a less turse way of one line
+
+    # Blame
+    bmd = blame -C -C -C # go as deep aso posibble on who really to thank for a change
 [core]
 	editor = nvim
+    compression = 9
+    whitespace = error
+    preloadindex = true
+	autocrlf = true
+[advice]
+    addEmptyPathspec = false
+    pushNonFastForward = false
+    statusHints = false
+    ; excludesfile = ./.gitingore # To use a global git ignore file
 [init]
 	defaultBranch = main
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
+[merge]
+    conflictstyle = diff3 # Show also the common anscestor when showing diffs
+[branch]
+    autosetupmerge = always
+    autoseetuprebase = always
+[diff]
+    context = 3
+    renames = copies
+    interHunkContext = 10
+[rerere]
+    # Remember how you resolved áconfict in the past
+    # Or for example if you abort a rebase it will remember how you once resolved it
+    enabled = true
+# TODO: Review why this is not working
+; [grep]
+;      # Add the line number alongside the file
+;     lineNumber = true
+;     patternType = pearl # Enables pearl regular expressions, similar as `git grep -P <expr>`
+; [push]
+;     default = nothing # when running git push do not push any default branch to any default remote; nothing is assumed. Also consider current or upstream.
+; Truora configs
+[includeIf "gitdir:~/.local/share/go/src/bitbucket.org/truora/**"]
+    path = ./work/.gitconfig
 [credential]
-    helper = store --file "$XDG_CONFIG_HOME"/git/.git_credentials
+	helper = store
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/

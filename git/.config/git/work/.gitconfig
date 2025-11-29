@@ -1,0 +1,17 @@
+[user]
+    email = dvilela@truora.com
+[alias]
+    fm = fetch origin master
+    mom = merge origin/master
+    dm = diff --output-indicator-new=' ' --output-indicator-old=' ' master # Show the diff with master
+[help]
+    autocorrect = 1
+[commit]
+    template = ~/.local/share/go/src/bitbucket.org/truora/scrap-services/templates/git/commit.txt
+[url "git@bitbucket.org:truora"]
+	insteadOf = https://bitbucket.org/truora
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
