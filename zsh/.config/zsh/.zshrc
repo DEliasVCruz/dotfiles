@@ -48,6 +48,8 @@ function _init_plugin {
 
     autoload -U compinit
     compinit -d "$ZSH_DATA/.zcompdump"
+    # autoload -U +X bashcompinit && bashcompinit
+    complete -o nospace -C /usr/bin/terraform terraform
 }
 
 function _init_local {
@@ -74,7 +76,6 @@ function _init_alias {
     # Python programming language
     alias pyrepl="ptpython" # The python REPL interactive shell
     alias pip="python -m pip"
-    alias pipx="python3.10 -m pipx"
 
     # Better utils
     # alias rm="rip"
@@ -90,6 +91,9 @@ function _init_alias {
     # Editor
     alias e="$EDITOR"
 
+    # Utilities
+    alias serve="python -m http.server" # Start a local http server
+
     # Arch package manager
     alias ins="paru -S"       # Install from the AUR
     alias s="paru -Ss --repo" # Search only on the standard repos
@@ -101,15 +105,27 @@ function _init_alias {
     # Mount the drive
     alias mnt="sudo mount /dev/sdb2 /mnt/media/Archivos"
 
+    # Note taking
+    alias todo="cd ~/Documents && nvim todos.md"
+
     # Git aliases
     alias g="git"
-    alias gss="git status -s"
-    alias gds="git diff --staged HEAD"
+
+    # Fossil aliases
+    alias fo="fossil"
+
+    # Truora commands
+    alias check='cd $GOPATH/src/bitbucket.org/truora/scrap-services;run-parts --regex="check_*" scripts/ --arg="origin/master...HEAD"; cd -'
+}
+
+function _keep_current_path() {
+  printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"
 }
 
 function _main() {
     _init_local
     _init_options
+    eval "$(atuin init zsh)"
     eval "$(starship init zsh)"
     _plugin_config
     _init_plugin
@@ -117,7 +133,13 @@ function _main() {
 }
 
 _main
+precmd_functions+=(_keep_current_path)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/danielv/.local/share/sdkman"
-[[ -s "/home/danielv/.local/share/sdkman/bin/sdkman-init.sh" ]] && source "/home/danielv/.local/share/sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="/home/danielv/.local/share/sdkman"
+# [[ -s "/home/danielv/.local/share/sdkman/bin/sdkman-init.sh" ]] && source "/home/danielv/.local/share/sdkman/bin/sdkman-init.sh"
+
+# bun completions
+[ -s "/home/danielv/.bun/_bun" ] && source "/home/danielv/.bun/_bun"
+
+eval "$("$XDG_LOCAL_HOME/bin/mise" activate zsh)"

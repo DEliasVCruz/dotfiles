@@ -20,6 +20,8 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export GOROOT="/usr/local/go"
 export GOPATH="$XDG_DATA_HOME/go"
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+export BUN_BIN="$BUN_INSTALL/bin"
 export GOBIN="$GOPATH/bin"
 export PIPX_HOME="$XDG_DATA_HOME/pipx"
 export PIPX_BIN_DIR="$PIPX_HOME/bin"
@@ -47,3 +49,8 @@ fi
 export NVM_DIR="$HOME/.local/share/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# Android development in WSL2 configuration
+export ANDROID_SDK_ROOT=/mnt/c/Users/danie/AppData/Local/Android/Sdk
+export ANDROID_HOME=/mnt/c/Users/danie/AppData/Local/Android/Sdk
+export PATH="$PATH:/mnt/c/Users/danie/AppData/Local/Android/Sdk/platform-tools"
+export ANDROID_EMULATOR_USE_SYSTEM_ADB=1
