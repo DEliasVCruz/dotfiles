@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+bash ~/scripts/bash/git_branch_list.sh
